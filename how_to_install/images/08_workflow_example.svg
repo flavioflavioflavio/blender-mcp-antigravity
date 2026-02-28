@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="320" viewBox="0 0 860 320">
+  <rect width="860" height="320" rx="12" fill="#1c2333"/>
+  <rect x="2" y="2" width="856" height="316" rx="11" fill="none" stroke="#30363d" stroke-width="2" stroke-dasharray="8 4"/>
+  <text x="430" y="130" text-anchor="middle" fill="#6e7681" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="600">💬</text>
+  <text x="430" y="175" text-anchor="middle" fill="#8b949e" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Exemplo de conversa no Antigravity controlando o Blender</text>
+  <text x="430" y="205" text-anchor="middle" fill="#6e7681" font-family="Inter, Arial, sans-serif" font-size="13">Substituir por screenshot de um prompt + resultado sendo executado no Blender</text>
+  <text x="430" y="250" text-anchor="middle" fill="#30363d" font-family="Inter, Arial, sans-serif" font-size="11">Tamanho recomendado: 860 × 320px  •  Formato: PNG ou JPG</text>
+  <text x="430" y="270" text-anchor="middle" fill="#30363d" font-family="Inter, Arial, sans-serif" font-size="11">Salvar como: 08_workflow_example.png</text>
+</svg>
