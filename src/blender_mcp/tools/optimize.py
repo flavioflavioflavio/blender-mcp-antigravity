@@ -1,4 +1,4 @@
-"""Optimize Mesh Tool — Decimate modifier with options. Ported from mezallastudio."""
+"""Optimize Mesh Tool — Decimate modifier with options."""
 from __future__ import annotations
 import json, logging
 logger = logging.getLogger("BlenderMCP.Optimize")

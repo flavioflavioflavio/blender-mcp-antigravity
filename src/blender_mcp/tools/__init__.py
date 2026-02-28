@@ -1,1 +1,1 @@
-# blender_mcp.tools — Extended tools ported from mezallastudio
+# blender_mcp.tools — Extended tool modules for Blender MCP

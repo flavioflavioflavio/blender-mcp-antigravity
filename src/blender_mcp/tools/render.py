@@ -1,4 +1,4 @@
-"""Render Preview Tool — Full render to file. Ported from mezallastudio."""
+"""Render Preview Tool — Full render to file."""
 from __future__ import annotations
 import json, logging
 logger = logging.getLogger("BlenderMCP.Render")

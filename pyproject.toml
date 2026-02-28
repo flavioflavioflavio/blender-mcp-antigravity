@@ -1,11 +1,11 @@
 [project]
 name = "blender-mcp-merge-antigravity"
 version = "2.0.0"
-description = "Blender MCP MERGE Antigravity — merged best of ahujasid + mezallastudio"
+description = "Blender MCP MERGE Antigravity — Extended Blender integration via MCP"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
-    {name = "Merged Build", email = "noreply@example.com"}
+    {name = "Antigravity", email = "noreply@antigravity.dev"}
 ]
 license = {text = "MIT"}
 classifiers = [

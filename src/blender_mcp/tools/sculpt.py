@@ -1,6 +1,5 @@
 """
 Sculpt Tool — AI-assisted mesh modification via template-based bpy operations.
-Ported from mezallastudio/antigravity-blender-mcp (TypeScript → Python).
 
 Uses keyword matching against natural language operation descriptions
 to select pre-built bpy code templates.

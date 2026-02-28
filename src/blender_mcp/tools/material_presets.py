@@ -1,4 +1,4 @@
-"""Material Presets Tool — Apply PBR material presets. Ported from mezallastudio."""
+"""Material Presets Tool — Apply PBR material presets."""
 from __future__ import annotations
 import json, logging
 logger = logging.getLogger("BlenderMCP.MaterialPresets")

@@ -17,7 +17,7 @@ from urllib.parse import urlparse
 from .telemetry import record_startup, get_telemetry
 from .telemetry_decorator import telemetry_tool
 
-# Import ported tool modules (from mezallastudio)
+# Import extended tool modules
 from .tools import blueprint, sculpt, procedural, optimize, render, bake, material_presets, gentex
 
 # Configure logging
@@ -213,7 +213,7 @@ mcp = FastMCP(
     lifespan=server_lifespan
 )
 
-# Register ported tools (blueprint, sculpt, procedural, optimize, render, bake, material_presets, gentex)
+# Register extended tools
 blueprint.register_tools(mcp, lambda: get_blender_connection())
 sculpt.register_tools(mcp, lambda: get_blender_connection())
 procedural.register_tools(mcp, lambda: get_blender_connection())

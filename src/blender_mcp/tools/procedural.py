@@ -1,6 +1,5 @@
 """
 Procedural Generation Tool — Trees, rocks, terrain, buildings.
-Ported from mezallastudio (TypeScript → Python).
 """
 from __future__ import annotations
 import json, logging, random as _random, math

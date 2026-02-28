@@ -1,6 +1,5 @@
 """
 Blueprint Tool — Structural breakdown for complex 3D models.
-Ported from mezallastudio/antigravity-blender-mcp (TypeScript → Python).
 
 Generates bpy code from a curated database of model blueprints with
 style modifiers and dynamic pattern matching for custom types.

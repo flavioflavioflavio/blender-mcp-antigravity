@@ -1,4 +1,4 @@
-"""Bake Textures Tool — Bake maps to image files. Ported from mezallastudio."""
+"""Bake Textures Tool — Bake maps to image files."""
 from __future__ import annotations
 import json, logging
 logger = logging.getLogger("BlenderMCP.Bake")

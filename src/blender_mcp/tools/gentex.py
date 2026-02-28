@@ -1,4 +1,4 @@
-"""GenTex Tool — Apply texture from file/URL with auto UV projection. Ported from mezallastudio."""
+"""GenTex Tool — Apply texture from file/URL with auto UV projection."""
 from __future__ import annotations
 import json, logging, os, tempfile
 logger = logging.getLogger("BlenderMCP.GenTex")
