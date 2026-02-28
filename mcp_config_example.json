@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "blender-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "D:\\_APPS\\_Skills_Etc\\MCP Blender Novo\\blender-mcp-merged",
+        "blender-mcp"
+      ]
+    }
+  }
+}
