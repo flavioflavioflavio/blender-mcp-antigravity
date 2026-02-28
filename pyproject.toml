@@ -1,7 +1,7 @@
 [project]
-name = "blender-mcp-antigravity"
+name = "blender-mcp-merge-antigravity"
 version = "2.0.0"
-description = "Unified Blender MCP for Antigravity — merged best of ahujasid + mezallastudio"
+description = "Blender MCP MERGE Antigravity — merged best of ahujasid + mezallastudio"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
