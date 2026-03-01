@@ -13,12 +13,7 @@
 
 Este projeto conecta o **Blender** ao **Antigravity IDE** através do [Model Context Protocol (MCP)](https://modelcontextprotocol.io/), permitindo que a IA controle diretamente o Blender — criar objetos, aplicar materiais, gerar modelos 3D, renderizar cenas e muito mais, tudo via linguagem natural.
 
-É uma **fusão unificada** de dois repositórios open-source:
-
-| Repositório                                                                                       | Autor                                                   | Contribuição                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp)                                   | **Siddharth Ahuja** ([@sidahuj](https://x.com/sidahuj)) | Base do projeto: servidor MCP, addon.py, integrações com PolyHaven, Sketchfab, Hyper3D e Hunyuan3D |
-| [mezallastudio/antigravity-blender-mcp](https://github.com/mezallastudio/antigravity-blender-mcp) | **Mezalla Studio**                                      | Tools avançadas: Blueprint, Sculpt, Procedural Generation, Material Presets, Render/Bake, Optimize |
+Unifica o melhor de [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) e [mezallastudio/antigravity-blender-mcp](https://github.com/mezallastudio/antigravity-blender-mcp) em um único pacote pronto para uso.
 
 ---
 
@@ -226,7 +221,12 @@ Além deste README, o repositório inclui um **guia visual offline** em `how_to_
 
 Adaptado e unificado por **Flavio Takemoto**.
 
-Agradecimento especial a **Siddharth Ahuja** ([ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp)) pelo trabalho no addon.py — o plugin Blender que torna toda a comunicação possível — e a **Mezalla Studio** ([mezallastudio/antigravity-blender-mcp](https://github.com/mezallastudio/antigravity-blender-mcp)) pelas tools avançadas de modelagem.
+| Repositório                                                                                       | Autor                                                   | Contribuição                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp)                                   | **Siddharth Ahuja** ([@sidahuj](https://x.com/sidahuj)) | Base do projeto: servidor MCP, addon.py, integrações com PolyHaven, Sketchfab, Hyper3D e Hunyuan3D |
+| [mezallastudio/antigravity-blender-mcp](https://github.com/mezallastudio/antigravity-blender-mcp) | **Mezalla Studio**                                      | Tools avançadas: Blueprint, Sculpt, Procedural Generation, Material Presets, Render/Bake, Optimize |
+
+Agradecimento especial a **Siddharth Ahuja** pelo addon.py — o plugin Blender que torna toda a comunicação possível.
 
 ---
 
