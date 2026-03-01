@@ -1,189 +1,293 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blender MCP MERGE Antigravity — Guia Completo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <h1>Blender MCP MERGE Antigravity</h1>
-    <p class="subtitle">Controle total do Blender via IA — Guia de Instalacao &amp; Referencia Completa</p>
-    <div class="badge-row">
-      <span class="badge tools">30 Tools</span>
-      <span class="badge version">v2.0.0</span>
-      <span class="badge python">Python 3.10+</span>
-    </div>
-  </header>
-
-  <div class="container">
-
-    <!-- TABLE OF CONTENTS -->
-    <nav class="toc">
-      <h3>Indice</h3>
-      <ol>
-        <li><a href="#prerequisites">Pre-requisitos</a></li>
-        <li><a href="#install-addon">Instalar o Addon no Blender</a></li>
-        <li><a href="#config-antigravity">Configurar no Antigravity IDE</a></li>
-        <li><a href="#first-connection">Primeira Conexao</a></li>
-        <li><a href="#how-to-use">Como Operar</a></li>
-        <li><a href="#tools-scene">Tools — Cena &amp; Objetos</a></li>
-        <li><a href="#tools-code">Tools — Execucao de Codigo</a></li>
-        <li><a href="#tools-blueprint">Tools — Blueprint (Geracao Estrutural)</a></li>
-        <li><a href="#tools-sculpt">Tools — Sculpt (Modificacao de Mesh)</a></li>
-        <li><a href="#tools-procedural">Tools — Geracao Procedural</a></li>
-        <li><a href="#tools-materials">Tools — Materiais &amp; Texturas</a></li>
-        <li><a href="#tools-render">Tools — Render &amp; Bake</a></li>
-        <li><a href="#tools-optimize">Tools — Otimizacao</a></li>
-        <li><a href="#tools-polyhaven">Tools — PolyHaven</a></li>
-        <li><a href="#tools-sketchfab">Tools — Sketchfab</a></li>
-        <li><a href="#tools-hyper3d">Tools — Hyper3D Rodin</a></li>
-        <li><a href="#tools-hunyuan">Tools — Hunyuan3D</a></li>
-        <li><a href="#troubleshooting">Troubleshooting</a></li>
-      </ol>
-    </nav>
-
-
-    <!-- 1. PRE-REQUISITOS -->
-    <section id="prerequisites">
-      <h2><span class="step-num">1</span> Pre-requisitos</h2>
-      <div class="step-card">
-        <p>Antes de comecar, certifique-se de ter instalado:</p>
-        <table class="tool-table">
-          <thead><tr><th>Software</th><th>Versao Minima</th><th>Link</th></tr></thead>
-          <tbody>
-            <tr><td>Blender</td><td>3.0+</td><td><a href="https://www.blender.org/download/" target="_blank" style="color:var(--accent)">blender.org</a></td></tr>
-            <tr><td>Python</td><td>3.10+</td><td><a href="https://www.python.org/downloads/" target="_blank" style="color:var(--accent)">python.org</a></td></tr>
-            <tr><td>uv</td><td>Ultima</td><td><a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" style="color:var(--accent)">astral.sh/uv</a></td></tr>
-            <tr><td>Antigravity IDE</td><td>Ultima</td><td><a href="#" style="color:var(--accent)">antigravity.dev</a></td></tr>
-          </tbody>
-        </table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blender MCP MERGE Antigravity — Guia Completo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HERO -->
+    <header class="hero">
+      <h1>Blender MCP MERGE Antigravity</h1>
+      <p class="subtitle">
+        Controle total do Blender via IA — Guia de Instalacao &amp; Referencia
+        Completa
+      </p>
+      <div class="badge-row">
+        <span class="badge tools">30 Tools</span>
+        <span class="badge version">v2.0.0</span>
+        <span class="badge python">Python 3.10+</span>
       </div>
-      <div class="alert info">
-        <span class="alert-icon">i</span>
-        <div class="alert-body">
-          <strong>uv — Gerenciador de pacotes Python</strong>
-          <p>Se ainda nao tem o <code>uv</code>, instale com: <code>pip install uv</code> ou <code>pipx install uv</code></p>
+    </header>
+
+    <div class="container">
+      <!-- TABLE OF CONTENTS -->
+      <nav class="toc">
+        <h3>Indice</h3>
+        <ol>
+          <li><a href="#prerequisites">Pre-requisitos</a></li>
+          <li><a href="#install-addon">Instalar o Addon no Blender</a></li>
+          <li>
+            <a href="#config-antigravity">Configurar no Antigravity IDE</a>
+          </li>
+          <li><a href="#first-connection">Primeira Conexao</a></li>
+          <li><a href="#how-to-use">Como Operar</a></li>
+          <li><a href="#tools-scene">Tools — Cena &amp; Objetos</a></li>
+          <li><a href="#tools-code">Tools — Execucao de Codigo</a></li>
+          <li>
+            <a href="#tools-blueprint"
+              >Tools — Blueprint (Geracao Estrutural)</a
+            >
+          </li>
+          <li>
+            <a href="#tools-sculpt">Tools — Sculpt (Modificacao de Mesh)</a>
+          </li>
+          <li><a href="#tools-procedural">Tools — Geracao Procedural</a></li>
+          <li>
+            <a href="#tools-materials">Tools — Materiais &amp; Texturas</a>
+          </li>
+          <li><a href="#tools-render">Tools — Render &amp; Bake</a></li>
+          <li><a href="#tools-optimize">Tools — Otimizacao</a></li>
+          <li><a href="#tools-polyhaven">Tools — PolyHaven</a></li>
+          <li><a href="#tools-sketchfab">Tools — Sketchfab</a></li>
+          <li><a href="#tools-hyper3d">Tools — Hyper3D Rodin</a></li>
+          <li><a href="#tools-hunyuan">Tools — Hunyuan3D</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ol>
+      </nav>
+
+      <!-- 1. PRE-REQUISITOS -->
+      <section id="prerequisites">
+        <h2><span class="step-num">1</span> Pre-requisitos</h2>
+        <div class="step-card">
+          <p>Antes de comecar, certifique-se de ter instalado:</p>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Software</th>
+                <th>Versao Minima</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Blender</td>
+                <td>3.0+</td>
+                <td>
+                  <a
+                    href="https://www.blender.org/download/"
+                    target="_blank"
+                    style="color: var(--accent)"
+                    >blender.org</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Python</td>
+                <td>3.10+</td>
+                <td>
+                  <a
+                    href="https://www.python.org/downloads/"
+                    target="_blank"
+                    style="color: var(--accent)"
+                    >python.org</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>uv</td>
+                <td>Ultima</td>
+                <td>
+                  <a
+                    href="https://docs.astral.sh/uv/getting-started/installation/"
+                    target="_blank"
+                    style="color: var(--accent)"
+                    >astral.sh/uv</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Antigravity IDE</td>
+                <td>Ultima</td>
+                <td>
+                  <a href="#" style="color: var(--accent)">antigravity.dev</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-    </section>
-
-
-    <!-- 2. INSTALAR ADDON -->
-    <section id="install-addon">
-      <h2><span class="step-num">2</span> Instalar o Addon no Blender</h2>
-
-      <div class="step-card">
-        <div class="step-label">Passo 2.1 — Abrir Preferencias</div>
-        <p>No Blender, va em <code>Edit &rarr; Preferences &rarr; Add-ons</code></p>
-        <div class="img-placeholder">
-          <img src="images/01_edit_preferences.svg" alt="Edit Preferences">
+        <div class="alert info">
+          <span class="alert-icon">i</span>
+          <div class="alert-body">
+            <strong>uv — Gerenciador de pacotes Python</strong>
+            <p>
+              Se ainda nao tem o <code>uv</code>, instale com:
+              <code>pip install uv</code> ou <code>pipx install uv</code>
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="step-card">
-        <div class="step-label">Passo 2.2 — Instalar Addon</div>
-        <p>Clique em <code>Install...</code> e selecione o arquivo <code>addon.py</code> localizado em:</p>
-        <pre><code>D:\_APPS\_Skills_Etc\Blender MCP in Antigravity\addon.py</code></pre>
-        <div class="img-placeholder">
-          <img src="images/02_install_addon.svg" alt="Install addon.py">
+      <!-- 2. INSTALAR ADDON -->
+      <section id="install-addon">
+        <h2><span class="step-num">2</span> Instalar o Addon no Blender</h2>
+
+        <div class="step-card">
+          <div class="step-label">Passo 2.1 — Abrir Preferencias</div>
+          <p>
+            No Blender, va em
+            <code>Edit &rarr; Preferences &rarr; Add-ons</code>
+          </p>
+          <div class="img-placeholder">
+            <img src="images/01_edit_preferences.png" alt="Edit Preferences" />
+          </div>
         </div>
-      </div>
 
-      <div class="step-card">
-        <div class="step-label">Passo 2.3 — Ativar o Addon</div>
-        <p>Apos instalar, ative o addon marcando o checkbox <code>BlenderMCP</code> na lista.</p>
-        <div class="img-placeholder">
-          <img src="images/03_activate_addon.svg" alt="Addon ativado">
+        <div class="step-card">
+          <div class="step-label">Passo 2.2 — Instalar Addon</div>
+          <p>
+            Clique em <code>Install...</code> e selecione o arquivo
+            <code>addon.py</code> localizado na raiz desta pasta (a mesma onde
+            esta a pasta <code>src/</code>).
+          </p>
+          <pre><code>&lt;PASTA_DO_PROJETO&gt;/addon.py</code></pre>
+          <div class="img-placeholder">
+            <img src="images/02_install_addon.png" alt="Install addon.py" />
+          </div>
         </div>
-      </div>
 
-      <div class="step-card">
-        <div class="step-label">Passo 2.4 — Iniciar o Servidor MCP</div>
-        <p>No Blender, abra o painel lateral com <code>N</code> e encontre a aba <code>BlenderMCP</code>. Clique em <code>Start MCP Server</code>.</p>
-        <div class="img-placeholder">
-          <img src="images/04_start_server.svg" alt="Start MCP Server">
+        <div class="step-card">
+          <div class="step-label">Passo 2.3 — Ativar o Addon</div>
+          <p>
+            Apos instalar, ative o addon marcando o checkbox
+            <code>BlenderMCP</code> na lista.
+          </p>
+          <div class="img-placeholder">
+            <img src="images/03_activate_addon.png" alt="Addon ativado" />
+          </div>
         </div>
-      </div>
 
-      <div class="alert success">
-        <span class="alert-icon">OK</span>
-        <div class="alert-body">
-          <strong>Servidor rodando!</strong>
-          <p>Quando o status mudar para "Server Running", o Blender esta pronto para receber comandos do Antigravity.</p>
+        <div class="step-card">
+          <div class="step-label">Passo 2.4 — Iniciar o Servidor MCP</div>
+          <p>
+            No Blender, abra o painel lateral com <code>N</code> e encontre a
+            aba <code>BlenderMCP</code>. Clique em
+            <code>Start MCP Server</code>.
+          </p>
+          <div class="img-placeholder">
+            <img src="images/04_start_server.png" alt="Start MCP Server" />
+          </div>
         </div>
-      </div>
-    </section>
 
+        <div class="alert success">
+          <span class="alert-icon">OK</span>
+          <div class="alert-body">
+            <strong>Servidor rodando!</strong>
+            <p>
+              Quando o status mudar para "Server Running", o Blender esta pronto
+              para receber comandos do Antigravity.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- 3. CONFIG ANTIGRAVITY -->
-    <section id="config-antigravity">
-      <h2><span class="step-num">3</span> Configurar no Antigravity IDE</h2>
+      <!-- 3. CONFIG ANTIGRAVITY -->
+      <section id="config-antigravity">
+        <h2><span class="step-num">3</span> Configurar no Antigravity IDE</h2>
 
-      <div class="step-card">
-        <div class="step-label">Passo 3.1 — Editar mcp_config.json</div>
-        <p>No seu <code>mcp_config.json</code> do Antigravity, adicione a entrada <code>blender-mcp</code>:</p>
-        <pre><code>{
+        <div class="step-card">
+          <div class="step-label">Passo 3.1 — Editar mcp_config.json</div>
+          <p>
+            No seu <code>mcp_config.json</code> do Antigravity, adicione a
+            entrada <code>blender-mcp</code>:
+          </p>
+          <pre><code>{
   "mcpServers": {
     "blender-mcp": {
       "command": "uv",
       "args": [
         "run",
         "--directory",
-        "D:\\_APPS\\_Skills_Etc\\Blender MCP in Antigravity",
+        "&lt;CAMINHO_COMPLETO_DA_PASTA&gt;",
         "blender-mcp"
       ],
       "env": {}
     }
   }
 }</code></pre>
-        <div class="img-placeholder">
-          <img src="images/05_mcp_config.svg" alt="mcp_config.json">
-        </div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-label">Passo 3.2 — Reiniciar o Antigravity</div>
-        <p>Reinicie o Antigravity IDE para que ele carregue o novo MCP server.</p>
-        <div class="img-placeholder">
-          <img src="images/06_antigravity_connected.svg" alt="Antigravity com blender-mcp">
-        </div>
-      </div>
-    </section>
-
-
-    <!-- 4. PRIMEIRA CONEXAO -->
-    <section id="first-connection">
-      <h2><span class="step-num">4</span> Primeira Conexao</h2>
-      <div class="step-card">
-        <p>Com o Blender aberto e o addon ativado + servidor rodando, o Antigravity se conecta automaticamente via TCP na porta <code>9876</code>.</p>
-        <div class="alert info">
-          <span class="alert-icon">!</span>
-          <div class="alert-body">
-            <strong>Ordem de inicializacao</strong>
-            <p>1. Abre o Blender &rarr; 2. Ativa o addon &rarr; 3. Clica "Start MCP Server" &rarr; 4. O Antigravity conecta automaticamente</p>
+          <div class="alert info">
+            <span class="alert-icon">i</span>
+            <div class="alert-body">
+              <strong>Substitua o caminho</strong>
+              <p>
+                Troque <code>&lt;CAMINHO_COMPLETO_DA_PASTA&gt;</code> pelo
+                caminho absoluto onde voce clonou/extraiu este repositorio.
+                Exemplo:
+                <code>C:\\MeusProjetos\\Blender MCP in Antigravity</code>
+              </p>
+            </div>
+          </div>
+          <div class="img-placeholder">
+            <img src="images/05_mcp_config.svg" alt="mcp_config.json" />
           </div>
         </div>
-        <div class="img-placeholder">
-          <img src="images/07_connected.svg" alt="Conexao ativa">
+
+        <div class="step-card">
+          <div class="step-label">Passo 3.2 — Reiniciar o Antigravity</div>
+          <p>
+            Reinicie o Antigravity IDE para que ele carregue o novo MCP server.
+          </p>
+          <div class="img-placeholder">
+            <img
+              src="images/06_antigravity_connected.svg"
+              alt="Antigravity com blender-mcp"
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <!-- 4. PRIMEIRA CONEXAO -->
+      <section id="first-connection">
+        <h2><span class="step-num">4</span> Primeira Conexao</h2>
+        <div class="step-card">
+          <p>
+            Com o Blender aberto e o addon ativado + servidor rodando, o
+            Antigravity se conecta automaticamente via TCP na porta
+            <code>9876</code>.
+          </p>
+          <div class="alert info">
+            <span class="alert-icon">!</span>
+            <div class="alert-body">
+              <strong>Ordem de inicializacao</strong>
+              <p>
+                1. Abre o Blender &rarr; 2. Ativa o addon &rarr; 3. Clica "Start
+                MCP Server" &rarr; 4. O Antigravity conecta automaticamente
+              </p>
+            </div>
+          </div>
+          <div class="img-placeholder">
+            <img src="images/07_connected.svg" alt="Conexao ativa" />
+          </div>
+        </div>
+      </section>
 
-    <!-- 5. COMO OPERAR -->
-    <section id="how-to-use">
-      <h2><span class="step-num">5</span> Como Operar</h2>
+      <!-- 5. COMO OPERAR -->
+      <section id="how-to-use">
+        <h2><span class="step-num">5</span> Como Operar</h2>
 
-      <div class="step-card">
-        <div class="step-label">Linguagem Natural</div>
-        <p>Simplesmente converse com a IA no Antigravity. Ela escolhe automaticamente qual tool usar.</p>
-        <pre><code>Exemplos de prompts:
+        <div class="step-card">
+          <div class="step-label">Linguagem Natural</div>
+          <p>
+            Simplesmente converse com a IA no Antigravity. Ela escolhe
+            automaticamente qual tool usar.
+          </p>
+          <pre><code>Exemplos de prompts:
 
 "Crie um predio cyberpunk com neon"
   &rarr; Usa generate_blueprint(model_type="BUILDING", style="CYBERPUNK")
@@ -205,72 +309,113 @@
 
 "Busque um modelo de cadeira no Sketchfab"
   &rarr; Usa search_sketchfab_models(query="chair")</code></pre>
+        </div>
+
+        <div class="step-card">
+          <div class="step-label">Fluxo de Trabalho Tipico</div>
+          <ol style="padding-left: 1.25rem; color: var(--text-secondary)">
+            <li>
+              Peca para a IA verificar a cena atual &rarr;
+              <code>get_scene_info</code>
+            </li>
+            <li>
+              Crie objetos via blueprint, procedural, ou buscando em libs &rarr;
+              <code>generate_blueprint</code> / <code>generate_procedural</code>
+            </li>
+            <li>Modifique meshes &rarr; <code>sculpt_mesh</code></li>
+            <li>
+              Aplique materiais e texturas &rarr;
+              <code>set_material_preset</code> /
+              <code>apply_texture_from_file</code>
+            </li>
+            <li>Otimize se necessario &rarr; <code>optimize_mesh</code></li>
+            <li>Renderize preview &rarr; <code>render_scene</code></li>
+            <li>
+              Bake texturas para exportacao &rarr; <code>bake_textures</code>
+            </li>
+          </ol>
+        </div>
+
+        <div class="img-placeholder">
+          <img src="images/08_workflow_example.svg" alt="Exemplo de workflow" />
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════ -->
+      <!--              REFERENCIA COMPLETA                   -->
+      <!-- ═══════════════════════════════════════════════════ -->
+
+      <div
+        style="
+          margin: 3rem 0;
+          padding: 2rem;
+          text-align: center;
+          border: 1px solid var(--border);
+          border-radius: var(--radius);
+          background: linear-gradient(
+            135deg,
+            var(--bg-secondary),
+            var(--bg-card)
+          );
+        "
+      >
+        <h2
+          style="border: none; justify-content: center; margin-bottom: 0.5rem"
+        >
+          Referencia Completa — Todas as 30 Tools
+        </h2>
+        <p style="color: var(--text-muted)">
+          Tudo que o Blender MCP + Antigravity consegue fazer
+        </p>
       </div>
 
-      <div class="step-card">
-        <div class="step-label">Fluxo de Trabalho Tipico</div>
-        <ol style="padding-left: 1.25rem; color: var(--text-secondary);">
-          <li>Peca para a IA verificar a cena atual &rarr; <code>get_scene_info</code></li>
-          <li>Crie objetos via blueprint, procedural, ou buscando em libs &rarr; <code>generate_blueprint</code> / <code>generate_procedural</code></li>
-          <li>Modifique meshes &rarr; <code>sculpt_mesh</code></li>
-          <li>Aplique materiais e texturas &rarr; <code>set_material_preset</code> / <code>apply_texture_from_file</code></li>
-          <li>Otimize se necessario &rarr; <code>optimize_mesh</code></li>
-          <li>Renderize preview &rarr; <code>render_scene</code></li>
-          <li>Bake texturas para exportacao &rarr; <code>bake_textures</code></li>
-        </ol>
-      </div>
+      <!-- TOOLS: CENA & OBJETOS -->
+      <section id="tools-scene">
+        <h2><span class="step-num">6</span> Cena &amp; Objetos</h2>
 
-      <div class="img-placeholder">
-        <img src="images/08_workflow_example.svg" alt="Exemplo de workflow">
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!--              REFERENCIA COMPLETA                   -->
-    <!-- ═══════════════════════════════════════════════════ -->
-
-    <div style="margin: 3rem 0; padding: 2rem; text-align: center; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));">
-      <h2 style="border: none; justify-content: center; margin-bottom: 0.5rem;">Referencia Completa — Todas as 30 Tools</h2>
-      <p style="color: var(--text-muted);">Tudo que o Blender MCP + Antigravity consegue fazer</p>
-    </div>
-
-
-    <!-- TOOLS: CENA & OBJETOS -->
-    <section id="tools-scene">
-      <h2><span class="step-num">6</span> Cena &amp; Objetos</h2>
-
-      <div class="step-card">
-        <h3><code>get_scene_info</code></h3>
-        <p>Retorna informacoes detalhadas da cena: objetos, materiais, cameras, luzes, colecoes.</p>
-        <pre><code>Uso: "Me mostre o que tem na cena"
+        <div class="step-card">
+          <h3><code>get_scene_info</code></h3>
+          <p>
+            Retorna informacoes detalhadas da cena: objetos, materiais, cameras,
+            luzes, colecoes.
+          </p>
+          <pre><code>Uso: "Me mostre o que tem na cena"
 Retorno: Lista completa de objetos com posicao, escala, rotacao, bounding box</code></pre>
-      </div>
+        </div>
 
-      <div class="step-card">
-        <h3><code>get_object_info</code></h3>
-        <p>Informacoes detalhadas de um objeto especifico: vertices, faces, materiais, modificadores.</p>
-        <pre><code>Parametros:
+        <div class="step-card">
+          <h3><code>get_object_info</code></h3>
+          <p>
+            Informacoes detalhadas de um objeto especifico: vertices, faces,
+            materiais, modificadores.
+          </p>
+          <pre><code>Parametros:
   object_name: "Cube"   # Nome do objeto no Blender</code></pre>
-      </div>
+        </div>
 
-      <div class="step-card">
-        <h3><code>get_viewport_screenshot</code></h3>
-        <p>Captura uma screenshot do viewport atual do Blender e retorna como imagem.</p>
-        <pre><code>Uso: "Mostre como esta a cena agora"
+        <div class="step-card">
+          <h3><code>get_viewport_screenshot</code></h3>
+          <p>
+            Captura uma screenshot do viewport atual do Blender e retorna como
+            imagem.
+          </p>
+          <pre><code>Uso: "Mostre como esta a cena agora"
 Retorno: Imagem do viewport atual</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: CODIGO -->
+      <section id="tools-code">
+        <h2><span class="step-num">7</span> Execucao de Codigo</h2>
 
-    <!-- TOOLS: CODIGO -->
-    <section id="tools-code">
-      <h2><span class="step-num">7</span> Execucao de Codigo</h2>
-
-      <div class="step-card">
-        <h3><code>execute_blender_code</code></h3>
-        <p>Executa codigo Python/bpy arbitrario no Blender. A ferramenta mais poderosa — permite fazer <strong>qualquer coisa</strong> que o Blender suporta.</p>
-        <pre><code>Parametros:
+        <div class="step-card">
+          <h3><code>execute_blender_code</code></h3>
+          <p>
+            Executa codigo Python/bpy arbitrario no Blender. A ferramenta mais
+            poderosa — permite fazer <strong>qualquer coisa</strong> que o
+            Blender suporta.
+          </p>
+          <pre><code>Parametros:
   code: "import bpy; bpy.ops.mesh.primitive_cube_add()"
 
 Exemplos:
@@ -280,114 +425,217 @@ Exemplos:
   "Exporte a cena como FBX para C:/exports/scene.fbx"
   "Configure o render para Cycles com 256 samples"</code></pre>
 
-        <div class="alert warning">
-          <span class="alert-icon">!!</span>
-          <div class="alert-body">
-            <strong>Power Tool</strong>
-            <p>Esta tool pode executar qualquer codigo Python no Blender. A IA gera o codigo automaticamente com base no seu pedido.</p>
+          <div class="alert warning">
+            <span class="alert-icon">!!</span>
+            <div class="alert-body">
+              <strong>Power Tool</strong>
+              <p>
+                Esta tool pode executar qualquer codigo Python no Blender. A IA
+                gera o codigo automaticamente com base no seu pedido.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <!-- TOOLS: BLUEPRINT -->
+      <section id="tools-blueprint">
+        <h2><span class="step-num">8</span> Blueprint — Geracao Estrutural</h2>
 
-    <!-- TOOLS: BLUEPRINT -->
-    <section id="tools-blueprint">
-      <h2><span class="step-num">8</span> Blueprint — Geracao Estrutural</h2>
+        <div class="step-card">
+          <h3><code>generate_blueprint</code></h3>
+          <p>
+            Gera modelos 3D complexos a partir de blueprints pre-definidos com
+            estilos visuais e componentes estruturais.
+          </p>
 
-      <div class="step-card">
-        <h3><code>generate_blueprint</code></h3>
-        <p>Gera modelos 3D complexos a partir de blueprints pre-definidos com estilos visuais e componentes estruturais.</p>
-
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   model_type:    BUILDING | WEAPON | VEHICLE | ROBOT | CUSTOM
   style:         CYBERPUNK | MEDIEVAL | SCIFI | MODERN | FANTASY (opcional)
   detail_level:  LOW | MEDIUM | HIGH (padrao: MEDIUM)
   description:   Para CUSTOM — descreva o que criar</code></pre>
 
-        <h3 style="margin-top: 1.25rem;">Tipos disponiveis</h3>
-        <table class="tool-table">
-          <thead><tr><th>Tipo</th><th>Componentes</th><th>Descricao</th></tr></thead>
-          <tbody>
-            <tr><td>BUILDING</td><td>7+</td><td>Predio com fundacao, corpo, teto, porta, janelas</td></tr>
-            <tr><td>WEAPON</td><td>7</td><td>Arma com receiver, cano, coronha, grip, scope</td></tr>
-            <tr><td>VEHICLE</td><td>9</td><td>Veiculo com carroceria, cabine, rodas, farois</td></tr>
-            <tr><td>ROBOT</td><td>10</td><td>Robo com torso, cabeca, olhos, bracos, pernas</td></tr>
-            <tr><td>CUSTOM</td><td>Auto</td><td>Usa pattern matching: dragon, dog, human, chair, sword, tree...</td></tr>
-          </tbody>
-        </table>
+          <h3 style="margin-top: 1.25rem">Tipos disponiveis</h3>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Componentes</th>
+                <th>Descricao</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BUILDING</td>
+                <td>7+</td>
+                <td>Predio com fundacao, corpo, teto, porta, janelas</td>
+              </tr>
+              <tr>
+                <td>WEAPON</td>
+                <td>7</td>
+                <td>Arma com receiver, cano, coronha, grip, scope</td>
+              </tr>
+              <tr>
+                <td>VEHICLE</td>
+                <td>9</td>
+                <td>Veiculo com carroceria, cabine, rodas, farois</td>
+              </tr>
+              <tr>
+                <td>ROBOT</td>
+                <td>10</td>
+                <td>Robo com torso, cabeca, olhos, bracos, pernas</td>
+              </tr>
+              <tr>
+                <td>CUSTOM</td>
+                <td>Auto</td>
+                <td>
+                  Usa pattern matching: dragon, dog, human, chair, sword,
+                  tree...
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-        <h3 style="margin-top: 1.25rem;">Estilos &amp; Modificadores</h3>
-        <table class="tool-table">
-          <thead><tr><th>Estilo</th><th>Efeito</th></tr></thead>
-          <tbody>
-            <tr><td>CYBERPUNK</td><td>Neons, pipes, antenas, materiais metalicos, AC units</td></tr>
-            <tr><td>MEDIEVAL</td><td>Chamine, tochas, materiais de pedra e madeira</td></tr>
-            <tr><td>SCIFI</td><td>Light strips, antena parabolica, metal polido</td></tr>
-          </tbody>
-        </table>
+          <h3 style="margin-top: 1.25rem">Estilos &amp; Modificadores</h3>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Estilo</th>
+                <th>Efeito</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CYBERPUNK</td>
+                <td>Neons, pipes, antenas, materiais metalicos, AC units</td>
+              </tr>
+              <tr>
+                <td>MEDIEVAL</td>
+                <td>Chamine, tochas, materiais de pedra e madeira</td>
+              </tr>
+              <tr>
+                <td>SCIFI</td>
+                <td>Light strips, antena parabolica, metal polido</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <pre><code>Exemplos de uso:
+          <pre><code>Exemplos de uso:
   "Crie um predio cyberpunk"
   "Gere um robo sci-fi com alto detalhe"
   "Crie um veiculo medieval"
   "Faca um dragao" &rarr; CUSTOM com pattern "dragon"
   "Crie uma cadeira" &rarr; CUSTOM com pattern "chair"</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: SCULPT -->
+      <section id="tools-sculpt">
+        <h2><span class="step-num">9</span> Sculpt — Modificacao de Mesh</h2>
 
-    <!-- TOOLS: SCULPT -->
-    <section id="tools-sculpt">
-      <h2><span class="step-num">9</span> Sculpt — Modificacao de Mesh</h2>
+        <div class="step-card">
+          <h3><code>sculpt_mesh</code></h3>
+          <p>
+            Modifica meshes usando linguagem natural. Usa template matching com
+            12 operacoes pre-definidas.
+          </p>
 
-      <div class="step-card">
-        <h3><code>sculpt_mesh</code></h3>
-        <p>Modifica meshes usando linguagem natural. Usa template matching com 12 operacoes pre-definidas.</p>
-
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   object_name:  "Cube"     # Objeto alvo
   operation:    "smooth"   # Descricao da operacao
   intensity:    subtle | normal | extreme (padrao: normal)</code></pre>
 
-        <h3 style="margin-top: 1.25rem;">12 Operacoes Disponiveis</h3>
-        <table class="tool-table">
-          <thead><tr><th>Operacao</th><th>Keywords</th><th>O que faz</th></tr></thead>
-          <tbody>
-            <tr><td>SUBDIVIDE</td><td>smooth, detail, refine</td><td>Adiciona mais vertices para detalhe</td></tr>
-            <tr><td>SPHERIFY</td><td>round, sphere, ball</td><td>Torna a mesh mais esferica</td></tr>
-            <tr><td>EXTRUDE_UP</td><td>horn, spike, point, tower</td><td>Extrude vertices para cima (chifres)</td></tr>
-            <tr><td>PUSH_FORWARD</td><td>nose, snout, beak, front</td><td>Empurra vertices frontais para frente</td></tr>
-            <tr><td>INDENT</td><td>eye, socket, hole, cave</td><td>Cria indentacoes (olhos, cavidades)</td></tr>
-            <tr><td>SCALE_BOTTOM</td><td>base, bottom, wider</td><td>Alarga a base do objeto</td></tr>
-            <tr><td>STRETCH_HEIGHT</td><td>tall, stretch, elongate</td><td>Estica verticalmente</td></tr>
-            <tr><td>FLATTEN_TOP</td><td>flat, plateau, table, cut</td><td>Achata o topo</td></tr>
-            <tr><td>PINCH_WAIST</td><td>waist, narrow, pinch</td><td>Estreita o meio (ampulheta)</td></tr>
-            <tr><td>SMOOTH</td><td>smooth, soften, blur</td><td>Suaviza a mesh</td></tr>
-            <tr><td>NOISE</td><td>rough, bumpy, organic, rocky</td><td>Adiciona deslocamento aleatorio</td></tr>
-            <tr><td>BEVEL_EDGES</td><td>bevel, rounded edges, chamfer</td><td>Chanfra arestas vivas</td></tr>
-          </tbody>
-        </table>
+          <h3 style="margin-top: 1.25rem">12 Operacoes Disponiveis</h3>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Operacao</th>
+                <th>Keywords</th>
+                <th>O que faz</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SUBDIVIDE</td>
+                <td>smooth, detail, refine</td>
+                <td>Adiciona mais vertices para detalhe</td>
+              </tr>
+              <tr>
+                <td>SPHERIFY</td>
+                <td>round, sphere, ball</td>
+                <td>Torna a mesh mais esferica</td>
+              </tr>
+              <tr>
+                <td>EXTRUDE_UP</td>
+                <td>horn, spike, point, tower</td>
+                <td>Extrude vertices para cima (chifres)</td>
+              </tr>
+              <tr>
+                <td>PUSH_FORWARD</td>
+                <td>nose, snout, beak, front</td>
+                <td>Empurra vertices frontais para frente</td>
+              </tr>
+              <tr>
+                <td>INDENT</td>
+                <td>eye, socket, hole, cave</td>
+                <td>Cria indentacoes (olhos, cavidades)</td>
+              </tr>
+              <tr>
+                <td>SCALE_BOTTOM</td>
+                <td>base, bottom, wider</td>
+                <td>Alarga a base do objeto</td>
+              </tr>
+              <tr>
+                <td>STRETCH_HEIGHT</td>
+                <td>tall, stretch, elongate</td>
+                <td>Estica verticalmente</td>
+              </tr>
+              <tr>
+                <td>FLATTEN_TOP</td>
+                <td>flat, plateau, table, cut</td>
+                <td>Achata o topo</td>
+              </tr>
+              <tr>
+                <td>PINCH_WAIST</td>
+                <td>waist, narrow, pinch</td>
+                <td>Estreita o meio (ampulheta)</td>
+              </tr>
+              <tr>
+                <td>SMOOTH</td>
+                <td>smooth, soften, blur</td>
+                <td>Suaviza a mesh</td>
+              </tr>
+              <tr>
+                <td>NOISE</td>
+                <td>rough, bumpy, organic, rocky</td>
+                <td>Adiciona deslocamento aleatorio</td>
+              </tr>
+              <tr>
+                <td>BEVEL_EDGES</td>
+                <td>bevel, rounded edges, chamfer</td>
+                <td>Chanfra arestas vivas</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <pre><code>Exemplos:
+          <pre><code>Exemplos:
   "Suavize o cubo"
   "Adicione chifres no objeto Head"
   "Faca o objeto ficar mais esferico"
   "Crie cavidades de olhos na esfera"
   "Deixe a base mais larga"</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: PROCEDURAL -->
+      <section id="tools-procedural">
+        <h2><span class="step-num">10</span> Geracao Procedural</h2>
 
-    <!-- TOOLS: PROCEDURAL -->
-    <section id="tools-procedural">
-      <h2><span class="step-num">10</span> Geracao Procedural</h2>
+        <div class="step-card">
+          <h3><code>generate_procedural</code></h3>
+          <p>Gera objetos procedurais com randomizacao controlada por seed.</p>
 
-      <div class="step-card">
-        <h3><code>generate_procedural</code></h3>
-        <p>Gera objetos procedurais com randomizacao controlada por seed.</p>
-
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   proc_type:    TREE | ROCK | TERRAIN | BUILDING
   style:        LOW_POLY | REALISTIC | STYLIZED (padrao: LOW_POLY)
   size:         Tamanho em unidades Blender (padrao: 2.0)
@@ -395,61 +643,147 @@ Exemplos:
   location_x/y/z:  Posicao no mundo (padrao: 0,0,0)
   complexity:   SIMPLE | MEDIUM | COMPLEX (padrao: MEDIUM)</code></pre>
 
-        <table class="tool-table">
-          <thead><tr><th>Tipo</th><th>O que gera</th></tr></thead>
-          <tbody>
-            <tr><td>TREE</td><td>Arvore com tronco cilindrico + esferas de folhagem com materiais</td></tr>
-            <tr><td>ROCK</td><td>Rocha com ico-sphere deformada aleatoriamente</td></tr>
-            <tr><td>TERRAIN</td><td>Terreno com heightmap via sin/cos + noise</td></tr>
-            <tr><td>BUILDING</td><td>Predio procedural com N andares + telhado</td></tr>
-          </tbody>
-        </table>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>O que gera</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TREE</td>
+                <td>
+                  Arvore com tronco cilindrico + esferas de folhagem com
+                  materiais
+                </td>
+              </tr>
+              <tr>
+                <td>ROCK</td>
+                <td>Rocha com ico-sphere deformada aleatoriamente</td>
+              </tr>
+              <tr>
+                <td>TERRAIN</td>
+                <td>Terreno com heightmap via sin/cos + noise</td>
+              </tr>
+              <tr>
+                <td>BUILDING</td>
+                <td>Predio procedural com N andares + telhado</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <pre><code>Exemplos:
+          <pre><code>Exemplos:
   "Gere uma arvore low poly na posicao 5,0,0"
   "Crie 3 rochas com seeds diferentes"
   "Gere um terreno de tamanho 10"
   "Crie um predio complexo de 4 andares"</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: MATERIAIS & TEXTURAS -->
+      <section id="tools-materials">
+        <h2><span class="step-num">11</span> Materiais &amp; Texturas</h2>
 
-    <!-- TOOLS: MATERIAIS & TEXTURAS -->
-    <section id="tools-materials">
-      <h2><span class="step-num">11</span> Materiais &amp; Texturas</h2>
+        <div class="step-card">
+          <h3><code>set_material_preset</code></h3>
+          <p>
+            Aplica presets PBR prontos com um comando. 11 materiais disponiveis.
+          </p>
 
-      <div class="step-card">
-        <h3><code>set_material_preset</code></h3>
-        <p>Aplica presets PBR prontos com um comando. 11 materiais disponiveis.</p>
-
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   object_name:  "Cube"       # Objeto alvo
   preset:       "GOLD"       # Preset desejado
   color_r/g/b:  0.0-1.0      # Override de cor (opcional)</code></pre>
 
-        <table class="tool-table">
-          <thead><tr><th>Preset</th><th>Metallic</th><th>Roughness</th><th>Extra</th></tr></thead>
-          <tbody>
-            <tr><td>METALLIC</td><td>0.95</td><td>0.2</td><td>---</td></tr>
-            <tr><td>PLASTIC</td><td>0.0</td><td>0.4</td><td>---</td></tr>
-            <tr><td>GLASS</td><td>0.0</td><td>0.05</td><td>Transmission 0.95</td></tr>
-            <tr><td>WOOD</td><td>0.0</td><td>0.7</td><td>---</td></tr>
-            <tr><td>STONE</td><td>0.0</td><td>0.85</td><td>---</td></tr>
-            <tr><td>FABRIC</td><td>0.0</td><td>0.9</td><td>---</td></tr>
-            <tr><td>EMISSIVE</td><td>0.0</td><td>0.5</td><td>Emission 5.0</td></tr>
-            <tr><td>MATTE</td><td>0.0</td><td>0.6</td><td>---</td></tr>
-            <tr><td>RUBBER</td><td>0.0</td><td>0.95</td><td>---</td></tr>
-            <tr><td>GOLD</td><td>1.0</td><td>0.15</td><td>Cor dourada</td></tr>
-            <tr><td>CHROME</td><td>1.0</td><td>0.05</td><td>Reflexao espelhada</td></tr>
-          </tbody>
-        </table>
-      </div>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Preset</th>
+                <th>Metallic</th>
+                <th>Roughness</th>
+                <th>Extra</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>METALLIC</td>
+                <td>0.95</td>
+                <td>0.2</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>PLASTIC</td>
+                <td>0.0</td>
+                <td>0.4</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>GLASS</td>
+                <td>0.0</td>
+                <td>0.05</td>
+                <td>Transmission 0.95</td>
+              </tr>
+              <tr>
+                <td>WOOD</td>
+                <td>0.0</td>
+                <td>0.7</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>STONE</td>
+                <td>0.0</td>
+                <td>0.85</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>FABRIC</td>
+                <td>0.0</td>
+                <td>0.9</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>EMISSIVE</td>
+                <td>0.0</td>
+                <td>0.5</td>
+                <td>Emission 5.0</td>
+              </tr>
+              <tr>
+                <td>MATTE</td>
+                <td>0.0</td>
+                <td>0.6</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>RUBBER</td>
+                <td>0.0</td>
+                <td>0.95</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>GOLD</td>
+                <td>1.0</td>
+                <td>0.15</td>
+                <td>Cor dourada</td>
+              </tr>
+              <tr>
+                <td>CHROME</td>
+                <td>1.0</td>
+                <td>0.05</td>
+                <td>Reflexao espelhada</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <div class="step-card">
-        <h3><code>apply_texture_from_file</code></h3>
-        <p>Aplica uma imagem como textura em um objeto. Suporta arquivos locais e URLs.</p>
+        <div class="step-card">
+          <h3><code>apply_texture_from_file</code></h3>
+          <p>
+            Aplica uma imagem como textura em um objeto. Suporta arquivos locais
+            e URLs.
+          </p>
 
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   object_name:  "Cube"
   source:       "C:/textures/brick.png"   # Caminho local ou URL HTTP
   uv_mode:      AUTO | BOX | SPHERE | CYLINDER (padrao: AUTO)
@@ -459,27 +793,28 @@ Exemplos:
   "Aplique a textura brick.png no cubo"
   "Baixe e aplique textura de https://example.com/wood.jpg no chao"
   "Use projecao cilindrica na coluna"</code></pre>
-      </div>
+        </div>
 
-      <div class="step-card">
-        <h3><code>set_texture</code></h3>
-        <p>Aplica uma textura PolyHaven previamente baixada em um objeto.</p>
-        <pre><code>Parametros:
+        <div class="step-card">
+          <h3><code>set_texture</code></h3>
+          <p>Aplica uma textura PolyHaven previamente baixada em um objeto.</p>
+          <pre><code>Parametros:
   object_name:  "Floor"
   texture_id:   "brick_wall_001"   # ID da textura PolyHaven</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: RENDER & BAKE -->
+      <section id="tools-render">
+        <h2><span class="step-num">12</span> Render &amp; Bake</h2>
 
-    <!-- TOOLS: RENDER & BAKE -->
-    <section id="tools-render">
-      <h2><span class="step-num">12</span> Render &amp; Bake</h2>
+        <div class="step-card">
+          <h3><code>render_scene</code></h3>
+          <p>
+            Renderiza a cena para um arquivo de imagem com camera automatica.
+          </p>
 
-      <div class="step-card">
-        <h3><code>render_scene</code></h3>
-        <p>Renderiza a cena para um arquivo de imagem com camera automatica.</p>
-
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   output_path:    "C:/renders/preview.png"
   width/height:   Resolucao em px (padrao: 512x512)
   camera_angle:   FRONT | TOP | SIDE | ISOMETRIC | CURRENT (padrao: ISOMETRIC)
@@ -492,13 +827,15 @@ Angulos de camera:
   SIDE       &rarr;  Vista lateral (10, 0, 1)
   ISOMETRIC  &rarr;  Perspectiva isometrica (7, -7, 5)
   CURRENT    &rarr;  Usa a camera ativa da cena</code></pre>
-      </div>
+        </div>
 
-      <div class="step-card">
-        <h3><code>bake_textures</code></h3>
-        <p>Bake de mapas de textura para exportacao ou uso em game engines.</p>
+        <div class="step-card">
+          <h3><code>bake_textures</code></h3>
+          <p>
+            Bake de mapas de textura para exportacao ou uso em game engines.
+          </p>
 
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   object_name:  "Character"
   output_dir:   "C:/baked/"
   bake_types:   "DIFFUSE,NORMAL,AO"  # Separados por virgula
@@ -508,19 +845,18 @@ Angulos de camera:
 
 Mapas disponiveis:
   COMBINED | DIFFUSE | NORMAL | AO | ROUGHNESS | METALLIC | EMIT | SHADOW</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: OPTIMIZE -->
+      <section id="tools-optimize">
+        <h2><span class="step-num">13</span> Otimizacao</h2>
 
-    <!-- TOOLS: OPTIMIZE -->
-    <section id="tools-optimize">
-      <h2><span class="step-num">13</span> Otimizacao</h2>
+        <div class="step-card">
+          <h3><code>optimize_mesh</code></h3>
+          <p>Reduz poligonos via Decimate modifier com controle preciso.</p>
 
-      <div class="step-card">
-        <h3><code>optimize_mesh</code></h3>
-        <p>Reduz poligonos via Decimate modifier com controle preciso.</p>
-
-        <pre><code>Parametros:
+          <pre><code>Parametros:
   object_name:     "HighPoly_Model"
   target_ratio:    0.5     # 0.01 a 1.0 (0.5 = 50% reducao)
   preserve_uvs:    true    # Manter UVs (padrao: true)
@@ -531,54 +867,104 @@ Retorno:
   Antes: 50000 verts, 25000 faces
   Depois: 25000 verts, 12500 faces
   Reducao: 50.0%</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: POLYHAVEN -->
+      <section id="tools-polyhaven">
+        <h2><span class="step-num">14</span> PolyHaven</h2>
 
-    <!-- TOOLS: POLYHAVEN -->
-    <section id="tools-polyhaven">
-      <h2><span class="step-num">14</span> PolyHaven</h2>
+        <div class="step-card">
+          <p>
+            Integracao com
+            <a
+              href="https://polyhaven.com"
+              target="_blank"
+              style="color: var(--accent)"
+              >PolyHaven</a
+            >
+            — biblioteca gratuita de HDRIs, texturas e modelos 3D.
+          </p>
 
-      <div class="step-card">
-        <p>Integracao com <a href="https://polyhaven.com" target="_blank" style="color:var(--accent)">PolyHaven</a> — biblioteca gratuita de HDRIs, texturas e modelos 3D.</p>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Funcao</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>get_polyhaven_status</td>
+                <td>Verifica se a integracao esta ativa</td>
+              </tr>
+              <tr>
+                <td>get_polyhaven_categories</td>
+                <td>Lista categorias disponiveis</td>
+              </tr>
+              <tr>
+                <td>search_polyhaven_assets</td>
+                <td>Busca assets por tipo (hdris, textures, models)</td>
+              </tr>
+              <tr>
+                <td>download_polyhaven_asset</td>
+                <td>Baixa e importa um asset no Blender</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <table class="tool-table">
-          <thead><tr><th>Tool</th><th>Funcao</th></tr></thead>
-          <tbody>
-            <tr><td>get_polyhaven_status</td><td>Verifica se a integracao esta ativa</td></tr>
-            <tr><td>get_polyhaven_categories</td><td>Lista categorias disponiveis</td></tr>
-            <tr><td>search_polyhaven_assets</td><td>Busca assets por tipo (hdris, textures, models)</td></tr>
-            <tr><td>download_polyhaven_asset</td><td>Baixa e importa um asset no Blender</td></tr>
-          </tbody>
-        </table>
-
-        <pre><code>Exemplos:
+          <pre><code>Exemplos:
   "Busque texturas de tijolo no PolyHaven"
   "Baixe o HDRI 'autumn_field' em 2k"
   "Aplique a textura 'brick_wall_001' no chao"
   "Busque modelos de plantas no PolyHaven"</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: SKETCHFAB -->
+      <section id="tools-sketchfab">
+        <h2><span class="step-num">15</span> Sketchfab</h2>
 
-    <!-- TOOLS: SKETCHFAB -->
-    <section id="tools-sketchfab">
-      <h2><span class="step-num">15</span> Sketchfab</h2>
+        <div class="step-card">
+          <p>
+            Integracao com
+            <a
+              href="https://sketchfab.com"
+              target="_blank"
+              style="color: var(--accent)"
+              >Sketchfab</a
+            >
+            — maior biblioteca de modelos 3D do mundo.
+          </p>
 
-      <div class="step-card">
-        <p>Integracao com <a href="https://sketchfab.com" target="_blank" style="color:var(--accent)">Sketchfab</a> — maior biblioteca de modelos 3D do mundo.</p>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Funcao</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>get_sketchfab_status</td>
+                <td>Verifica se a integracao esta ativa</td>
+              </tr>
+              <tr>
+                <td>search_sketchfab_models</td>
+                <td>Busca modelos por query + categorias</td>
+              </tr>
+              <tr>
+                <td>get_sketchfab_model_preview</td>
+                <td>Preview thumbnail de um modelo</td>
+              </tr>
+              <tr>
+                <td>download_sketchfab_model</td>
+                <td>Baixa e importa com escala automatica</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <table class="tool-table">
-          <thead><tr><th>Tool</th><th>Funcao</th></tr></thead>
-          <tbody>
-            <tr><td>get_sketchfab_status</td><td>Verifica se a integracao esta ativa</td></tr>
-            <tr><td>search_sketchfab_models</td><td>Busca modelos por query + categorias</td></tr>
-            <tr><td>get_sketchfab_model_preview</td><td>Preview thumbnail de um modelo</td></tr>
-            <tr><td>download_sketchfab_model</td><td>Baixa e importa com escala automatica</td></tr>
-          </tbody>
-        </table>
-
-        <pre><code>Fluxo:
+          <pre><code>Fluxo:
   1. "Busque modelos de cadeira realista" &rarr; search
   2. "Mostre o preview do primeiro resultado" &rarr; preview
   3. "Baixe esse modelo com tamanho 1 metro" &rarr; download
@@ -586,116 +972,210 @@ Retorno:
 Parametros do download:
   uid:          "abc123"   # UID do modelo
   target_size:  1.0        # Tamanho em metros para a maior dimensao</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: HYPER3D -->
+      <section id="tools-hyper3d">
+        <h2><span class="step-num">16</span> Hyper3D Rodin</h2>
 
-    <!-- TOOLS: HYPER3D -->
-    <section id="tools-hyper3d">
-      <h2><span class="step-num">16</span> Hyper3D Rodin</h2>
+        <div class="step-card">
+          <p>
+            Geracao de modelos 3D via IA usando
+            <a
+              href="https://hyper3d.ai"
+              target="_blank"
+              style="color: var(--accent)"
+              >Hyper3D Rodin</a
+            >. Gera objetos unicos a partir de texto ou imagem.
+          </p>
 
-      <div class="step-card">
-        <p>Geracao de modelos 3D via IA usando <a href="https://hyper3d.ai" target="_blank" style="color:var(--accent)">Hyper3D Rodin</a>. Gera objetos unicos a partir de texto ou imagem.</p>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Funcao</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>get_hyper3d_status</td>
+                <td>Verifica status e tipo de chave</td>
+              </tr>
+              <tr>
+                <td>generate_hyper3d_model_via_text</td>
+                <td>Gera modelo 3D a partir de texto</td>
+              </tr>
+              <tr>
+                <td>generate_hyper3d_model_via_images</td>
+                <td>Gera modelo 3D a partir de imagem(ns)</td>
+              </tr>
+              <tr>
+                <td>poll_rodin_job_status</td>
+                <td>Verifica progresso da geracao</td>
+              </tr>
+              <tr>
+                <td>import_generated_asset</td>
+                <td>Importa o modelo gerado no Blender</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <table class="tool-table">
-          <thead><tr><th>Tool</th><th>Funcao</th></tr></thead>
-          <tbody>
-            <tr><td>get_hyper3d_status</td><td>Verifica status e tipo de chave</td></tr>
-            <tr><td>generate_hyper3d_model_via_text</td><td>Gera modelo 3D a partir de texto</td></tr>
-            <tr><td>generate_hyper3d_model_via_images</td><td>Gera modelo 3D a partir de imagem(ns)</td></tr>
-            <tr><td>poll_rodin_job_status</td><td>Verifica progresso da geracao</td></tr>
-            <tr><td>import_generated_asset</td><td>Importa o modelo gerado no Blender</td></tr>
-          </tbody>
-        </table>
-
-        <pre><code>Fluxo:
+          <pre><code>Fluxo:
   1. "Gere um modelo 3D de um vaso de ceramica" &rarr; generate via text
   2. (aguarda conclusao) &rarr; poll status
   3. Importa automaticamente &rarr; import asset
   4. Ajusta posicao e escala
 
 Nota: Gera apenas objetos individuais, nao cenas inteiras.</code></pre>
-      </div>
-    </section>
+        </div>
+      </section>
 
+      <!-- TOOLS: HUNYUAN3D -->
+      <section id="tools-hunyuan">
+        <h2><span class="step-num">17</span> Hunyuan3D</h2>
 
-    <!-- TOOLS: HUNYUAN3D -->
-    <section id="tools-hunyuan">
-      <h2><span class="step-num">17</span> Hunyuan3D</h2>
+        <div class="step-card">
+          <p>
+            Geracao 3D via IA da Tencent. Suporta texto e/ou imagem como input.
+          </p>
 
-      <div class="step-card">
-        <p>Geracao 3D via IA da Tencent. Suporta texto e/ou imagem como input.</p>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Funcao</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>get_hunyuan3d_status</td>
+                <td>Verifica status (OFFICIAL_API ou LOCAL_API)</td>
+              </tr>
+              <tr>
+                <td>generate_hunyuan3d_model</td>
+                <td>Gera modelo via texto e/ou imagem</td>
+              </tr>
+              <tr>
+                <td>poll_hunyuan_job_status</td>
+                <td>Verifica progresso — status "RUN" para "DONE"</td>
+              </tr>
+              <tr>
+                <td>import_generated_asset_hunyuan</td>
+                <td>Importa o modelo OBJ gerado</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <table class="tool-table">
-          <thead><tr><th>Tool</th><th>Funcao</th></tr></thead>
-          <tbody>
-            <tr><td>get_hunyuan3d_status</td><td>Verifica status (OFFICIAL_API ou LOCAL_API)</td></tr>
-            <tr><td>generate_hunyuan3d_model</td><td>Gera modelo via texto e/ou imagem</td></tr>
-            <tr><td>poll_hunyuan_job_status</td><td>Verifica progresso — status "RUN" para "DONE"</td></tr>
-            <tr><td>import_generated_asset_hunyuan</td><td>Importa o modelo OBJ gerado</td></tr>
-          </tbody>
-        </table>
-
-        <pre><code>Fluxo (OFFICIAL_API):
+          <pre><code>Fluxo (OFFICIAL_API):
   1. "Gere um modelo 3D de um sapato esportivo" &rarr; generate
   2. (aguarda "DONE") &rarr; poll
   3. Importa o OBJ &rarr; import
 
 Fluxo (LOCAL_API):
   1. Geracao + importacao em um unico passo</code></pre>
-      </div>
-    </section>
-
-
-    <!-- TROUBLESHOOTING -->
-    <section id="troubleshooting">
-      <h2><span class="step-num">18</span> Troubleshooting</h2>
-
-      <div class="step-card">
-        <table class="tool-table">
-          <thead><tr><th>Problema</th><th>Solucao</th></tr></thead>
-          <tbody>
-            <tr><td>Conexao recusada</td><td>Verifique se o addon esta ativado e o servidor MCP esta rodando no Blender (porta 9876)</td></tr>
-            <tr><td>Tool not found</td><td>Reinicie o Antigravity para recarregar os MCP servers</td></tr>
-            <tr><td>Timeout em comandos</td><td>Para operacoes pesadas (bake, render), aumente o timeout. O Blender pode levar alguns segundos.</td></tr>
-            <tr><td>PolyHaven/Sketchfab off</td><td>Configure as API keys no addon do Blender (painel lateral &rarr; BlenderMCP)</td></tr>
-            <tr><td>Hyper3D "insufficient balance"</td><td>Trial key tem limite diario. Adquira uma chave em hyper3d.ai ou fal.ai</td></tr>
-            <tr><td>Objeto nao encontrado</td><td>Verifique o nome exato com <code>get_scene_info</code>. Nomes sao case-sensitive.</td></tr>
-            <tr><td>uv nao encontrado</td><td>Instale via <code>pip install uv</code> e garanta que esta no PATH</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="alert info">
-        <span class="alert-icon">TIP</span>
-        <div class="alert-body">
-          <strong>Dica</strong>
-          <p>Se algo der errado, peca para a IA: <em>"Verifique a cena e me diga o que tem"</em> — isso executa <code>get_scene_info</code> e ajuda a diagnosticar.</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-  </div>
+      <!-- TROUBLESHOOTING -->
+      <section id="troubleshooting">
+        <h2><span class="step-num">18</span> Troubleshooting</h2>
 
-  <footer>
-    <p>Blender MCP MERGE Antigravity v2.0.0 — 30 tools &bull; Python 3.10+</p>
-  </footer>
+        <div class="step-card">
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Problema</th>
+                <th>Solucao</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Conexao recusada</td>
+                <td>
+                  Verifique se o addon esta ativado e o servidor MCP esta
+                  rodando no Blender (porta 9876)
+                </td>
+              </tr>
+              <tr>
+                <td>Tool not found</td>
+                <td>Reinicie o Antigravity para recarregar os MCP servers</td>
+              </tr>
+              <tr>
+                <td>Timeout em comandos</td>
+                <td>
+                  Para operacoes pesadas (bake, render), aumente o timeout. O
+                  Blender pode levar alguns segundos.
+                </td>
+              </tr>
+              <tr>
+                <td>PolyHaven/Sketchfab off</td>
+                <td>
+                  Configure as API keys no addon do Blender (painel lateral
+                  &rarr; BlenderMCP)
+                </td>
+              </tr>
+              <tr>
+                <td>Hyper3D "insufficient balance"</td>
+                <td>
+                  Trial key tem limite diario. Adquira uma chave em hyper3d.ai
+                  ou fal.ai
+                </td>
+              </tr>
+              <tr>
+                <td>Objeto nao encontrado</td>
+                <td>
+                  Verifique o nome exato com <code>get_scene_info</code>. Nomes
+                  sao case-sensitive.
+                </td>
+              </tr>
+              <tr>
+                <td>uv nao encontrado</td>
+                <td>
+                  Instale via <code>pip install uv</code> e garanta que esta no
+                  PATH
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-  <script>
-    // Copy button functionality
-    document.querySelectorAll('pre').forEach(function(block) {
-      var btn = document.createElement('button');
-      btn.className = 'copy-btn';
-      btn.textContent = 'Copiar';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(block.querySelector('code').textContent);
-        btn.textContent = 'Copiado!';
-        setTimeout(function() { btn.textContent = 'Copiar'; }, 2000);
+        <div class="alert info">
+          <span class="alert-icon">TIP</span>
+          <div class="alert-body">
+            <strong>Dica</strong>
+            <p>
+              Se algo der errado, peca para a IA:
+              <em>"Verifique a cena e me diga o que tem"</em> — isso executa
+              <code>get_scene_info</code> e ajuda a diagnosticar.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>Blender MCP MERGE Antigravity v2.0.0 — 30 tools &bull; Python 3.10+</p>
+    </footer>
+
+    <script>
+      // Copy button functionality
+      document.querySelectorAll("pre").forEach(function (block) {
+        var btn = document.createElement("button");
+        btn.className = "copy-btn";
+        btn.textContent = "Copiar";
+        btn.addEventListener("click", function () {
+          navigator.clipboard.writeText(
+            block.querySelector("code").textContent,
+          );
+          btn.textContent = "Copiado!";
+          setTimeout(function () {
+            btn.textContent = "Copiar";
+          }, 2000);
+        });
+        block.style.position = "relative";
+        block.appendChild(btn);
       });
-      block.style.position = 'relative';
-      block.appendChild(btn);
-    });
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>

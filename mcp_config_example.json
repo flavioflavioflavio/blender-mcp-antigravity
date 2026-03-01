@@ -5,7 +5,7 @@
       "args": [
         "run",
         "--directory",
-        "D:\\_APPS\\_Skills_Etc\\Blender MCP in Antigravity",
+        "<CAMINHO_COMPLETO_DA_PASTA>",
         "blender-mcp"
       ]
     }
