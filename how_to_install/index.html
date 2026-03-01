@@ -201,51 +201,143 @@
       <section id="config-antigravity">
         <h2><span class="step-num">3</span> Configurar no Antigravity IDE</h2>
 
-        <!-- OPCAO A: FACIL -->
-        <div class="step-card" style="border-color: var(--success); border-width: 2px;">
-          <div class="step-label" style="color: var(--success);">Opcao A — Deixa o Antigravity Instalar (Mais Facil)</div>
-          <p>O proprio Antigravity pode configurar tudo pra voce. Basta abrir o chat e pedir:</p>
+        <!-- OPCAO A: COLAR URL -->
+        <div
+          class="step-card"
+          style="border-color: var(--success); border-width: 3px"
+        >
+          <div
+            class="step-label"
+            style="color: var(--success); font-size: 1.1rem"
+          >
+            Opcao A — Colar o link do GitHub (mais facil)
+          </div>
 
           <div class="alert success">
             <span class="alert-icon">OK</span>
             <div class="alert-body">
-              <strong>Passo a passo automatico</strong>
+              <strong
+                >Nao precisa clonar, nao precisa instalar nada
+                manualmente.</strong
+              >
+              <p>
+                Se voce usa o Antigravity IDE, basta colar o link deste
+                repositorio no chat. O Antigravity faz todo o resto.
+              </p>
             </div>
           </div>
 
-          <ol style="padding-left: 1.25rem; color: var(--text-secondary); line-height: 2;">
+          <ol
+            style="
+              padding-left: 1.25rem;
+              color: var(--text-secondary);
+              line-height: 2.2;
+            "
+          >
             <li>Abra o <strong>Antigravity IDE</strong></li>
-            <li>No chat, envie a mensagem:<br>
-              <code style="display: inline-block; margin-top: 0.5rem; padding: 0.5rem 1rem; background: var(--bg-secondary); border-radius: 6px;">"Configure o MCP server blender-mcp apontando para a pasta [COLE O CAMINHO DA PASTA AQUI]"</code>
+            <li>
+              No chat, cole o link do repositorio:<br />
+              <code
+                style="
+                  display: inline-block;
+                  margin-top: 0.5rem;
+                  padding: 0.75rem 1.25rem;
+                  background: var(--bg-secondary);
+                  border-radius: 6px;
+                  font-size: 0.95rem;
+                  border: 1px solid var(--success);
+                "
+                >https://github.com/flavioflavioflavio/blender-mcp-antigravity</code
+              >
             </li>
-            <li>O Antigravity vai automaticamente:
-              <ul style="margin-top: 0.5rem;">
-                <li>Localizar (ou criar) o arquivo <code>mcp_config.json</code></li>
-                <li>Adicionar a entrada <code>blender-mcp</code> com o caminho correto</li>
-                <li>Instalar as dependencias via <code>uv</code></li>
+            <li>
+              O Antigravity detecta automaticamente que e um MCP server e:
+              <ul style="margin-top: 0.5rem">
+                <li>Clona o repositorio</li>
+                <li>Instala todas as dependencias via <code>uv</code></li>
+                <li>Configura o <code>mcp_config.json</code></li>
+                <li>Deixa tudo pronto para uso</li>
               </ul>
             </li>
-            <li>Reinicie o Antigravity para carregar o novo MCP server</li>
-            <li>Pronto! O Blender MCP ja aparece na lista de servers conectados</li>
+            <li>Reinicie o Antigravity IDE</li>
+            <li>
+              Pronto! O Blender MCP ja aparece na lista de servers conectados
+            </li>
           </ol>
 
           <div class="img-placeholder">
-            <img src="images/06_antigravity_connected.png" alt="Antigravity com blender-mcp" />
+            <img
+              src="images/06_antigravity_connected.png"
+              alt="Antigravity com blender-mcp conectado"
+            />
           </div>
         </div>
 
-        <!-- OPCAO B: MANUAL -->
+        <!-- OPCAO B: PEDIR NO CHAT -->
         <div class="step-card">
-          <div class="step-label">Opcao B — Configuracao Manual (Avancado)</div>
-          <p>Se preferir configurar manualmente, edite o <code>mcp_config.json</code> do Antigravity:</p>
+          <div class="step-label">
+            Opcao B — Pedir no chat (se ja clonou o repositorio)
+          </div>
+          <p>
+            Se voce ja baixou ou clonou este repositorio na sua maquina, pode
+            pedir para o Antigravity configurar apontando para a pasta local:
+          </p>
 
-          <ol style="padding-left: 1.25rem; color: var(--text-secondary); line-height: 2;">
-            <li>Localize o arquivo <code>mcp_config.json</code> do Antigravity
-              <ul style="margin-top: 0.25rem;">
-                <li>Geralmente fica em: <code>~/.gemini/antigravity/mcp_config.json</code></li>
+          <ol
+            style="
+              padding-left: 1.25rem;
+              color: var(--text-secondary);
+              line-height: 2;
+            "
+          >
+            <li>Abra o <strong>Antigravity IDE</strong></li>
+            <li>
+              No chat, envie a mensagem:<br />
+              <code
+                style="
+                  display: inline-block;
+                  margin-top: 0.5rem;
+                  padding: 0.5rem 1rem;
+                  background: var(--bg-secondary);
+                  border-radius: 6px;
+                "
+                >"Configure o MCP server blender-mcp apontando para a pasta
+                [COLE O CAMINHO DA PASTA AQUI]"</code
+              >
+            </li>
+            <li>O Antigravity configura automaticamente</li>
+            <li>Reinicie o Antigravity para carregar o novo MCP server</li>
+          </ol>
+        </div>
+
+        <!-- OPCAO C: MANUAL -->
+        <div class="step-card">
+          <div class="step-label">Opcao C — Configuracao Manual (Avancado)</div>
+          <p>
+            Se preferir configurar manualmente, edite o
+            <code>mcp_config.json</code> do Antigravity:
+          </p>
+
+          <ol
+            style="
+              padding-left: 1.25rem;
+              color: var(--text-secondary);
+              line-height: 2;
+            "
+          >
+            <li>
+              Localize o arquivo <code>mcp_config.json</code> do Antigravity
+              <ul style="margin-top: 0.25rem">
+                <li>
+                  Geralmente fica em:
+                  <code>~/.gemini/antigravity/mcp_config.json</code>
+                </li>
               </ul>
             </li>
-            <li>Adicione a entrada <code>blender-mcp</code> dentro de <code>mcpServers</code>:</li>
+            <li>
+              Adicione a entrada <code>blender-mcp</code> dentro de
+              <code>mcpServers</code>:
+            </li>
           </ol>
 
           <pre><code>{
@@ -269,13 +361,20 @@
               <strong>Substitua o caminho</strong>
               <p>
                 Troque <code>&lt;CAMINHO_COMPLETO_DA_PASTA&gt;</code> pelo
-                caminho absoluto onde voce extraiu este repositorio.
-                Exemplo: <code>C:\\MeusProjetos\\Blender MCP in Antigravity</code>
+                caminho absoluto onde voce extraiu este repositorio. Exemplo:
+                <code>C:\\MeusProjetos\\Blender MCP in Antigravity</code>
               </p>
             </div>
           </div>
 
-          <ol start="3" style="padding-left: 1.25rem; color: var(--text-secondary); line-height: 2;">
+          <ol
+            start="3"
+            style="
+              padding-left: 1.25rem;
+              color: var(--text-secondary);
+              line-height: 2;
+            "
+          >
             <li>Salve o arquivo</li>
             <li>Reinicie o Antigravity IDE</li>
           </ol>
@@ -1185,54 +1284,116 @@ Fluxo (LOCAL_API):
     </div>
 
     <!-- CREDITS & ACKNOWLEDGMENTS -->
-    <section id="credits" style="margin-top: 2rem;">
+    <section id="credits" style="margin-top: 2rem">
       <div class="container">
-        <div class="step-card" style="border-color: var(--accent); border-width: 2px; text-align: center;">
-          <h2 style="border: none; justify-content: center; margin-bottom: 1.5rem;">Creditos &amp; Agradecimentos</h2>
+        <div
+          class="step-card"
+          style="
+            border-color: var(--accent);
+            border-width: 2px;
+            text-align: center;
+          "
+        >
+          <h2
+            style="border: none; justify-content: center; margin-bottom: 1.5rem"
+          >
+            Creditos &amp; Agradecimentos
+          </h2>
 
-          <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1.5rem;">
-            Adaptado e unificado por <strong style="color: var(--accent);">Flavio Takemoto</strong>
+          <p
+            style="
+              font-size: 1.1rem;
+              color: var(--text-primary);
+              margin-bottom: 1.5rem;
+            "
+          >
+            Adaptado e unificado por
+            <strong style="color: var(--accent)">Flavio Takemoto</strong>
           </p>
 
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-            Este projeto e uma fusao das melhores funcionalidades de dois repositorios open-source
-            incriveis. Obrigado aos autores originais por tornarem isso possivel.
+          <p style="color: var(--text-secondary); margin-bottom: 2rem">
+            Este projeto e uma fusao das melhores funcionalidades de dois
+            repositorios open-source incriveis. Obrigado aos autores originais
+            por tornarem isso possivel.
           </p>
 
-          <table class="tool-table" style="margin-bottom: 2rem;">
+          <table class="tool-table" style="margin-bottom: 2rem">
             <thead>
-              <tr><th>Repositorio</th><th>Autor</th><th>Contribuicao</th></tr>
+              <tr>
+                <th>Repositorio</th>
+                <th>Autor</th>
+                <th>Contribuicao</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
-                <td><a href="https://github.com/ahujasid/blender-mcp" target="_blank" style="color: var(--accent);">ahujasid/blender-mcp</a></td>
-                <td><strong>Siddharth Ahuja</strong> (<a href="https://x.com/sidahuj" target="_blank" style="color: var(--accent);">@sidahuj</a>)</td>
-                <td>Base do projeto: server MCP, addon.py para o Blender, integracoes com PolyHaven, Sketchfab, Hyper3D e Hunyuan3D (17.4k+ stars)</td>
+                <td>
+                  <a
+                    href="https://github.com/ahujasid/blender-mcp"
+                    target="_blank"
+                    style="color: var(--accent)"
+                    >ahujasid/blender-mcp</a
+                  >
+                </td>
+                <td>
+                  <strong>Siddharth Ahuja</strong> (<a
+                    href="https://x.com/sidahuj"
+                    target="_blank"
+                    style="color: var(--accent)"
+                    >@sidahuj</a
+                  >)
+                </td>
+                <td>
+                  Base do projeto: server MCP, addon.py para o Blender,
+                  integracoes com PolyHaven, Sketchfab, Hyper3D e Hunyuan3D
+                  (17.4k+ stars)
+                </td>
               </tr>
               <tr>
-                <td><a href="https://github.com/mezallastudio/antigravity-blender-mcp" target="_blank" style="color: var(--accent);">mezallastudio/antigravity-blender-mcp</a></td>
+                <td>
+                  <a
+                    href="https://github.com/mezallastudio/antigravity-blender-mcp"
+                    target="_blank"
+                    style="color: var(--accent)"
+                    >mezallastudio/antigravity-blender-mcp</a
+                  >
+                </td>
                 <td><strong>Mezalla Studio</strong></td>
-                <td>Tools avancadas: Blueprint generation, Sculpt mesh, Procedural generation, Material presets, Render/Bake, Optimize mesh, Texture application</td>
+                <td>
+                  Tools avancadas: Blueprint generation, Sculpt mesh, Procedural
+                  generation, Material presets, Render/Bake, Optimize mesh,
+                  Texture application
+                </td>
               </tr>
             </tbody>
           </table>
 
-          <div class="alert info" style="text-align: left;">
+          <div class="alert info" style="text-align: left">
             <span class="alert-icon">&#10084;</span>
             <div class="alert-body">
               <strong>Agradecimento especial</strong>
               <p>
-                Um agradecimento especial a <strong>Siddharth Ahuja</strong> pelo incrivel trabalho no
-                <code>addon.py</code> — o addon do Blender que faz toda a comunicacao entre o Blender e o
-                servidor MCP funcionar. Sem esse addon, nada disso seria possivel.
+                Um agradecimento especial a
+                <strong>Siddharth Ahuja</strong> pelo incrivel trabalho no
+                <code>addon.py</code> — o addon do Blender que faz toda a
+                comunicacao entre o Blender e o servidor MCP funcionar. Sem esse
+                addon, nada disso seria possivel.
               </p>
             </div>
           </div>
 
-          <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-secondary); border-radius: var(--radius); display: inline-block;">
-            <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">
-              <strong style="color: var(--text-secondary);">Licenca MIT</strong> — Open Source &bull;
-              Use, modifique e distribua livremente
+          <div
+            style="
+              margin-top: 2rem;
+              padding: 1.25rem;
+              background: var(--bg-secondary);
+              border-radius: var(--radius);
+              display: inline-block;
+            "
+          >
+            <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem">
+              <strong style="color: var(--text-secondary)">Licenca MIT</strong>
+              — Open Source &bull; Use, modifique e distribua livremente
             </p>
           </div>
         </div>
@@ -1241,7 +1402,9 @@ Fluxo (LOCAL_API):
 
     <footer>
       <p>Blender MCP MERGE Antigravity v2.0.0 — 30 tools &bull; Python 3.10+</p>
-      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">
+      <p
+        style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem"
+      >
         Adaptado por Flavio Takemoto &bull; Licenca MIT &bull; 2025
       </p>
     </footer>

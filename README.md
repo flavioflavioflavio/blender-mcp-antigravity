@@ -60,29 +60,21 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 ## 📦 Instalação
 
-### Passo 1 — Instalar o addon no Blender
+### Passo 1 — Configurar no Antigravity IDE
 
-Abra o Blender e vá em `Edit → Preferences → Add-ons`:
+**Opção A — Colar o link do GitHub (mais fácil):**
 
-![Edit Preferences](how_to_install/images/01_edit_preferences.png)
+Se você usa o Antigravity IDE, basta colar o link deste repositório no chat:
 
-Clique em `Install...` e selecione o arquivo `addon.py` da raiz deste repositório:
+```
+https://github.com/flavioflavioflavio/blender-mcp-antigravity
+```
 
-![Install addon.py](how_to_install/images/02_install_addon.png)
+O Antigravity detecta automaticamente que é um MCP server, instala todas as dependências e configura tudo. Basta reiniciar o IDE depois.
 
-Ative o addon marcando o checkbox `BlenderMCP`:
+> Não precisa clonar, não precisa instalar nada manualmente. Cole o link, reinicie, pronto.
 
-![Addon ativado](how_to_install/images/03_activate_addon.png)
-
-### Passo 2 — Iniciar o servidor no Blender
-
-No Blender, pressione `N` para abrir o painel lateral. Encontre a aba `BlenderMCP` e clique em **Start MCP Server**:
-
-![Start MCP Server](how_to_install/images/04_start_server.png)
-
-### Passo 3 — Configurar no Antigravity IDE
-
-**Opção A — Automática (recomendada):**
+**Opção B — Pedir no chat:**
 
 Abra o chat do Antigravity e envie:
 
@@ -92,7 +84,7 @@ Abra o chat do Antigravity e envie:
 
 O Antigravity cuida do resto.
 
-**Opção B — Manual:**
+**Opção C — Configuração manual:**
 
 Edite o arquivo `mcp_config.json` do Antigravity (geralmente em `~/.gemini/antigravity/mcp_config.json`):
 
@@ -113,6 +105,28 @@ Edite o arquivo `mcp_config.json` do Antigravity (geralmente em `~/.gemini/antig
 ```
 
 Substitua `<CAMINHO_COMPLETO_DESTE_REPOSITORIO>` pelo caminho absoluto onde você clonou o repositório.
+
+---
+
+### Passo 2 — Instalar o addon no Blender
+
+Abra o Blender e vá em `Edit → Preferences → Add-ons`:
+
+![Edit Preferences](how_to_install/images/01_edit_preferences.png)
+
+Clique em `Install...` e selecione o arquivo `addon.py` da raiz deste repositório:
+
+![Install addon.py](how_to_install/images/02_install_addon.png)
+
+Ative o addon marcando o checkbox `BlenderMCP`:
+
+![Addon ativado](how_to_install/images/03_activate_addon.png)
+
+### Passo 3 — Iniciar o servidor no Blender
+
+No Blender, pressione `N` para abrir o painel lateral. Encontre a aba `BlenderMCP` e clique em **Start MCP Server**:
+
+![Start MCP Server](how_to_install/images/04_start_server.png)
 
 ### Passo 4 — Conectar
 
