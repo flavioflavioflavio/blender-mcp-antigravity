@@ -19,7 +19,7 @@ Unifica o melhor de [ahujasid/blender-mcp](https://github.com/ahujasid/blender-m
 
 > **Timelapse** — IA do Antigravity gerando uma cena completa no Blender via MCP, do zero.
 
-https://github.com/flavioflavioflavio/blender-mcp-antigravity/raw/master/blender_antigravity_mcp.mp4
+https://github.com/user-attachments/assets/04046f6a-7b3e-4644-ba03-a5a3e391a283
 
 ---
 
