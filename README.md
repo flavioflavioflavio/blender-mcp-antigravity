@@ -15,6 +15,10 @@ Este projeto conecta o **Blender** ao **Antigravity IDE** através do [Model Con
 
 Unifica o melhor de [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) e [mezallastudio/antigravity-blender-mcp](https://github.com/mezallastudio/antigravity-blender-mcp) em um único pacote pronto para uso.
 
+### Veja em ação
+
+https://github.com/flavioflavioflavio/blender-mcp-antigravity/raw/master/blender_antigravity_mcp.mp4
+
 ---
 
 ## 🛠 30 Tools disponíveis
