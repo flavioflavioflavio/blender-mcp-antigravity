@@ -1,287 +1,221 @@
+# Blender MCP MERGE Antigravity
 
+> Controle total do Blender via IA — uma fusão das melhores ferramentas MCP para o Antigravity IDE.
 
-# BlenderMCP - Blender Model Context Protocol Integration
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB.svg)](https://www.python.org/)
+[![Blender 3.0+](https://img.shields.io/badge/Blender-3.0+-E87D0D.svg)](https://www.blender.org/)
+![Tools](https://img.shields.io/badge/Tools-30-8B5CF6.svg)
 
-BlenderMCP connects Blender to Claude AI through the Model Context Protocol (MCP), allowing Claude to directly interact with and control Blender. This integration enables prompt assisted 3D modeling, scene creation, and manipulation.
+---
 
-**We have no official website. Any website you see online is unofficial and has no affiliation with this project. Use them at your own risk.**
+## 🔎 O que é
 
-[Full tutorial](https://www.youtube.com/watch?v=lCyQ717DuzQ)
+Este projeto conecta o **Blender** ao **Antigravity IDE** através do [Model Context Protocol (MCP)](https://modelcontextprotocol.io/), permitindo que a IA controle diretamente o Blender — criar objetos, aplicar materiais, gerar modelos 3D, renderizar cenas e muito mais, tudo via linguagem natural.
 
-### Join the Community
+É uma **fusão unificada** de dois repositórios open-source:
 
-Give feedback, get inspired, and build on top of the MCP: [Discord](https://discord.gg/z5apgR8TFU)
+| Repositório                                                                                       | Autor                                                   | Contribuição                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp)                                   | **Siddharth Ahuja** ([@sidahuj](https://x.com/sidahuj)) | Base do projeto: servidor MCP, addon.py, integrações com PolyHaven, Sketchfab, Hyper3D e Hunyuan3D |
+| [mezallastudio/antigravity-blender-mcp](https://github.com/mezallastudio/antigravity-blender-mcp) | **Mezalla Studio**                                      | Tools avançadas: Blueprint, Sculpt, Procedural Generation, Material Presets, Render/Bake, Optimize |
 
-### Supporters
+---
 
-[CodeRabbit](https://www.coderabbit.ai/)
+## 🛠 30 Tools disponíveis
 
-**All supporters:**
+| Categoria      | Tools                                                                                                                                           | Descrição                                                         |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **Cena**       | `get_scene_info`, `get_object_info`, `get_viewport_screenshot`                                                                                  | Inspecionar a cena, objetos e capturar screenshots                |
+| **Código**     | `execute_blender_code`                                                                                                                          | Executar qualquer código Python/bpy no Blender                    |
+| **Blueprint**  | `generate_blueprint`                                                                                                                            | Gerar modelos complexos (prédios, veículos, robôs, armas, custom) |
+| **Sculpt**     | `sculpt_mesh`                                                                                                                                   | Modificar meshes via linguagem natural (12 operações)             |
+| **Procedural** | `generate_procedural`                                                                                                                           | Gerar árvores, rochas, terrenos e prédios procedurais             |
+| **Materiais**  | `set_material_preset`, `apply_texture_from_file`, `set_texture`                                                                                 | 11 presets PBR + texturas de arquivo ou URL                       |
+| **Render**     | `render_scene`, `bake_textures`                                                                                                                 | Renderizar cenas e fazer bake de mapas de textura                 |
+| **Otimização** | `optimize_mesh`                                                                                                                                 | Reduzir polígonos via Decimate com controle preciso               |
+| **PolyHaven**  | `get_polyhaven_status`, `get_polyhaven_categories`, `search_polyhaven_assets`, `download_polyhaven_asset`                                       | HDRIs, texturas e modelos gratuitos                               |
+| **Sketchfab**  | `get_sketchfab_status`, `search_sketchfab_models`, `get_sketchfab_model_preview`, `download_sketchfab_model`                                    | Buscar, visualizar e importar modelos 3D                          |
+| **Hyper3D**    | `get_hyper3d_status`, `generate_hyper3d_model_via_text`, `generate_hyper3d_model_via_images`, `poll_rodin_job_status`, `import_generated_asset` | Gerar modelos 3D via IA (texto ou imagem)                         |
+| **Hunyuan3D**  | `get_hunyuan3d_status`, `generate_hunyuan3d_model`, `poll_hunyuan_job_status`, `import_generated_asset_hunyuan`                                 | Geração 3D via Tencent AI                                         |
 
-[Support this project](https://github.com/sponsors/ahujasid)
+---
 
-## Current version(1.5.5)
-- Added Hunyuan3D support
-- View screenshots for Blender viewport to better understand the scene
-- Search and download Sketchfab models
-- Support for Poly Haven assets through their API
-- Support to generate 3D models using Hyper3D Rodin
-- Run Blender MCP on a remote host
-- Telemetry for tools executed (completely anonymous)
+## 📋 Pré-requisitos
 
-### Installating a new version (existing users)
-- For newcomers, you can go straight to Installation. For existing users, see the points below
-- Download the latest addon.py file and replace the older one, then add it to Blender
-- Delete the MCP server from Claude and add it back again, and you should be good to go!
+| Software        | Versão mínima | Link                                                                    |
+| --------------- | ------------- | ----------------------------------------------------------------------- |
+| Blender         | 3.0+          | [blender.org](https://www.blender.org/download/)                        |
+| Python          | 3.10+         | [python.org](https://www.python.org/downloads/)                         |
+| uv              | Última        | [astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/) |
+| Antigravity IDE | Última        | [antigravity.dev](https://antigravity.dev)                              |
 
+**Instalar o `uv` no Windows:**
 
-## Features
-
-- **Two-way communication**: Connect Claude AI to Blender through a socket-based server
-- **Object manipulation**: Create, modify, and delete 3D objects in Blender
-- **Material control**: Apply and modify materials and colors
-- **Scene inspection**: Get detailed information about the current Blender scene
-- **Code execution**: Run arbitrary Python code in Blender from Claude
-
-## Components
-
-The system consists of two main components:
-
-1. **Blender Addon (`addon.py`)**: A Blender addon that creates a socket server within Blender to receive and execute commands
-2. **MCP Server (`src/blender_mcp/server.py`)**: A Python server that implements the Model Context Protocol and connects to the Blender addon
-
-## Installation
-
-
-### Prerequisites
-
-- Blender 3.0 or newer
-- Python 3.10 or newer
-- uv package manager: 
-
-**If you're on Mac, please install uv as**
-```bash
-brew install uv
-```
-**On Windows**
 ```powershell
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex" 
-```
-and then add uv to the user path in Windows (you may need to restart Claude Desktop after):
-```powershell
-$localBin = "$env:USERPROFILE\.local\bin"
-$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
-[Environment]::SetEnvironmentVariable("Path", "$userPath;$localBin", "User")
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Otherwise installation instructions are on their website: [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
+---
 
-**⚠️ Do not proceed before installing UV**
+## 📦 Instalação
 
-### Environment Variables
+### Passo 1 — Instalar o addon no Blender
 
-The following environment variables can be used to configure the Blender connection:
+Abra o Blender e vá em `Edit → Preferences → Add-ons`:
 
-- `BLENDER_HOST`: Host address for Blender socket server (default: "localhost")
-- `BLENDER_PORT`: Port number for Blender socket server (default: 9876)
+![Edit Preferences](how_to_install/images/01_edit_preferences.png)
 
-Example:
-```bash
-export BLENDER_HOST='host.docker.internal'
-export BLENDER_PORT=9876
+Clique em `Install...` e selecione o arquivo `addon.py` da raiz deste repositório:
+
+![Install addon.py](how_to_install/images/02_install_addon.png)
+
+Ative o addon marcando o checkbox `BlenderMCP`:
+
+![Addon ativado](how_to_install/images/03_activate_addon.png)
+
+### Passo 2 — Iniciar o servidor no Blender
+
+No Blender, pressione `N` para abrir o painel lateral. Encontre a aba `BlenderMCP` e clique em **Start MCP Server**:
+
+![Start MCP Server](how_to_install/images/04_start_server.png)
+
+### Passo 3 — Configurar no Antigravity IDE
+
+**Opção A — Automática (recomendada):**
+
+Abra o chat do Antigravity e envie:
+
+```
+"Configure o MCP server blender-mcp apontando para a pasta C:\caminho\para\este\repositorio"
 ```
 
-### Claude for Desktop Integration
+O Antigravity cuida do resto.
 
-[Watch the setup instruction video](https://www.youtube.com/watch?v=neoK_WMq92g) (Assuming you have already installed uv)
+**Opção B — Manual:**
 
-Go to Claude > Settings > Developer > Edit Config > claude_desktop_config.json to include the following:
+Edite o arquivo `mcp_config.json` do Antigravity (geralmente em `~/.gemini/antigravity/mcp_config.json`):
 
 ```json
 {
-    "mcpServers": {
-        "blender": {
-            "command": "uvx",
-            "args": [
-                "blender-mcp"
-            ]
-        }
+  "mcpServers": {
+    "blender-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "<CAMINHO_COMPLETO_DESTE_REPOSITORIO>",
+        "blender-mcp"
+      ]
     }
-}
-```
-<details>
-<summary>Claude Code</summary>
-
-Use the Claude Code CLI to add the blender MCP server:
-
-```bash
-claude mcp add blender uvx blender-mcp
-```
-</details>
-
-### Cursor integration
-
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/link/mcp%2Finstall?name=blender&config=eyJjb21tYW5kIjoidXZ4IGJsZW5kZXItbWNwIn0%3D)
-
-For Mac users, go to Settings > MCP and paste the following 
-
-- To use as a global server, use "add new global MCP server" button and paste
-- To use as a project specific server, create `.cursor/mcp.json` in the root of the project and paste
-
-
-```json
-{
-    "mcpServers": {
-        "blender": {
-            "command": "uvx",
-            "args": [
-                "blender-mcp"
-            ]
-        }
-    }
+  }
 }
 ```
 
-For Windows users, go to Settings > MCP > Add Server, add a new server with the following settings:
+Substitua `<CAMINHO_COMPLETO_DESTE_REPOSITORIO>` pelo caminho absoluto onde você clonou o repositório.
 
-```json
-{
-    "mcpServers": {
-        "blender": {
-            "command": "cmd",
-            "args": [
-                "/c",
-                "uvx",
-                "blender-mcp"
-            ]
-        }
-    }
-}
+### Passo 4 — Conectar
+
+Reinicie o Antigravity IDE. Com o servidor rodando no Blender, a conexão acontece automaticamente via TCP na porta `9876`.
+
+![Antigravity conectado ao Blender MCP](how_to_install/images/06_antigravity_connected.png)
+
+![Conexão ativa](how_to_install/images/07_connected.png)
+
+---
+
+## 🚀 Como usar
+
+Simplesmente converse com a IA no Antigravity. Ela escolhe automaticamente qual tool usar:
+
+```
+"Crie um prédio cyberpunk com neon"
+  → generate_blueprint(model_type="BUILDING", style="CYBERPUNK")
+
+"Suavize a mesh do cubo"
+  → sculpt_mesh(object_name="Cube", operation="smooth")
+
+"Gere um terreno rochoso com seed 42"
+  → generate_procedural(proc_type="TERRAIN", seed=42)
+
+"Aplique material de ouro no objeto Sphere"
+  → set_material_preset(object_name="Sphere", preset="GOLD")
+
+"Renderize a cena em perspectiva isométrica"
+  → render_scene(camera_angle="ISOMETRIC")
+
+"Busque um modelo de cadeira no Sketchfab"
+  → search_sketchfab_models(query="chair")
 ```
 
-[Cursor setup video](https://www.youtube.com/watch?v=wgWsJshecac)
+![Exemplo de workflow](how_to_install/images/08_workflow_example.png)
 
-**⚠️ Only run one instance of the MCP server (either on Cursor or Claude Desktop), not both**
+---
 
-### Visual Studio Code Integration
+## 🏗 Arquitetura
 
-_Prerequisites_: Make sure you have [Visual Studio Code](https://code.visualstudio.com/) installed before proceeding.
-
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_blender--mcp_server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=ffffff)](vscode:mcp/install?%7B%22name%22%3A%22blender-mcp%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22blender-mcp%22%5D%7D)
-
-### Installing the Blender Addon
-
-1. Download the `addon.py` file from this repo
-1. Open Blender
-2. Go to Edit > Preferences > Add-ons
-3. Click "Install..." and select the `addon.py` file
-4. Enable the addon by checking the box next to "Interface: Blender MCP"
-
-
-## Usage
-
-### Starting the Connection
-![BlenderMCP in the sidebar](assets/addon-instructions.png)
-
-1. In Blender, go to the 3D View sidebar (press N if not visible)
-2. Find the "BlenderMCP" tab
-3. Turn on the Poly Haven checkbox if you want assets from their API (optional)
-4. Click "Connect to Claude"
-5. Make sure the MCP server is running in your terminal
-
-### Using with Claude
-
-Once the config file has been set on Claude, and the addon is running on Blender, you will see a hammer icon with tools for the Blender MCP.
-
-![BlenderMCP in the sidebar](assets/hammer-icon.png)
-
-#### Capabilities
-
-- Get scene and object information 
-- Create, delete and modify shapes
-- Apply or create materials for objects
-- Execute any Python code in Blender
-- Download the right models, assets and HDRIs through [Poly Haven](https://polyhaven.com/)
-- AI generated 3D models through [Hyper3D Rodin](https://hyper3d.ai/)
-
-
-### Example Commands
-
-Here are some examples of what you can ask Claude to do:
-
-- "Create a low poly scene in a dungeon, with a dragon guarding a pot of gold" [Demo](https://www.youtube.com/watch?v=DqgKuLYUv00)
-- "Create a beach vibe using HDRIs, textures, and models like rocks and vegetation from Poly Haven" [Demo](https://www.youtube.com/watch?v=I29rn92gkC4)
-- Give a reference image, and create a Blender scene out of it [Demo](https://www.youtube.com/watch?v=FDRb03XPiRo)
-- "Generate a 3D model of a garden gnome through Hyper3D"
-- "Get information about the current scene, and make a threejs sketch from it" [Demo](https://www.youtube.com/watch?v=jxbNI5L7AH8)
-- "Make this car red and metallic" 
-- "Create a sphere and place it above the cube"
-- "Make the lighting like a studio"
-- "Point the camera at the scene, and make it isometric"
-
-## Hyper3D integration
-
-Hyper3D's free trial key allows you to generate a limited number of models per day. If the daily limit is reached, you can wait for the next day's reset or obtain your own key from hyper3d.ai and fal.ai.
-
-## Troubleshooting
-
-- **Connection issues**: Make sure the Blender addon server is running, and the MCP server is configured on Claude, DO NOT run the uvx command in the terminal. Sometimes, the first command won't go through but after that it starts working.
-- **Timeout errors**: Try simplifying your requests or breaking them into smaller steps
-- **Poly Haven integration**: Claude is sometimes erratic with its behaviour
-- **Have you tried turning it off and on again?**: If you're still having connection errors, try restarting both Claude and the Blender server
-
-
-## Technical Details
-
-### Communication Protocol
-
-The system uses a simple JSON-based protocol over TCP sockets:
-
-- **Commands** are sent as JSON objects with a `type` and optional `params`
-- **Responses** are JSON objects with a `status` and `result` or `message`
-
-## Limitations & Security Considerations
-
-- The `execute_blender_code` tool allows running arbitrary Python code in Blender, which can be powerful but potentially dangerous. Use with caution in production environments. ALWAYS save your work before using it.
-- Poly Haven requires downloading models, textures, and HDRI images. If you do not want to use it, please turn it off in the checkbox in Blender. 
-- Complex operations might need to be broken down into smaller steps
-
-
-#### Telemetry Control
-
-BlenderMCP collects anonymous usage data to help improve the tool. You can control telemetry in two ways:
-
-1. **In Blender**: Go to Edit > Preferences > Add-ons > Blender MCP and uncheck the telemetry consent checkbox
-   - With consent (checked): Collects anonymized prompts, code snippets, and screenshots
-   - Without consent (unchecked): Only collects minimal anonymous usage data (tool names, success/failure, duration)
-
-2. **Environment Variable**: Completely disable all telemetry by running:
-```bash
-DISABLE_TELEMETRY=true uvx blender-mcp
+```
+Antigravity IDE ↔ MCP Server (server.py) ↔ Socket TCP :9876 ↔ Blender Addon (addon.py) ↔ Blender Python API
 ```
 
-Or add it to your MCP config:
-```json
-{
-    "mcpServers": {
-        "blender": {
-            "command": "uvx",
-            "args": ["blender-mcp"],
-            "env": {
-                "DISABLE_TELEMETRY": "true"
-            }
-        }
-    }
-}
+| Componente        | Arquivo                     | Função                                                                        |
+| ----------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| **Blender Addon** | `addon.py`                  | Plugin Blender que cria um socket server TCP para receber e executar comandos |
+| **MCP Server**    | `src/blender_mcp/server.py` | Servidor MCP que expõe as 30 tools para o Antigravity                         |
+| **Tools**         | `src/blender_mcp/tools/`    | Módulos especializados (blueprint, sculpt, procedural, render, etc.)          |
+
+---
+
+## 📂 Estrutura do projeto
+
+```
+├── addon.py                      # Plugin Blender (socket server + lógica)
+├── main.py                       # Entry point
+├── mcp_config_example.json       # Exemplo de configuração MCP
+├── pyproject.toml                # Definição do pacote Python
+├── src/blender_mcp/
+│   ├── server.py                 # Servidor MCP principal (30 tools)
+│   ├── telemetry.py              # Telemetria anônima (desativável)
+│   └── tools/
+│       ├── blueprint.py          # Geração estrutural de modelos
+│       ├── sculpt.py             # Modificação de meshes via linguagem natural
+│       ├── procedural.py         # Geração procedural (árvores, rochas, terrenos)
+│       ├── material_presets.py   # 11 presets PBR
+│       ├── gentex.py             # Aplicação de texturas
+│       ├── render.py             # Renderização de cenas
+│       ├── bake.py               # Bake de mapas de textura
+│       └── optimize.py           # Otimização de meshes (Decimate)
+└── how_to_install/
+    ├── index.html                # Guia visual completo (offline)
+    ├── style.css
+    └── images/                   # Screenshots do guia
 ```
 
-All telemetry data is fully anonymized and used solely to improve BlenderMCP.
+---
 
+## ⚠️ Notas importantes
 
-## Contributing
+- O `execute_blender_code` pode executar código Python arbitrário no Blender. **Salve seu trabalho antes de usar.**
+- Integrações com PolyHaven e Sketchfab precisam estar habilitadas no painel do addon no Blender.
+- Hyper3D oferece uma chave trial gratuita com limite diário. Para uso intensivo, obtenha sua chave em [hyper3d.ai](https://hyper3d.ai) ou [fal.ai](https://fal.ai).
+- A telemetria é anônima e pode ser desativada completamente via variável de ambiente `DISABLE_TELEMETRY=true`.
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+---
 
-## Disclaimer
+## 📖 Guia completo
 
-This is a third-party integration and not made by Blender. Made by [Siddharth](https://x.com/sidahuj)
+Além deste README, o repositório inclui um **guia visual offline** em `how_to_install/index.html` com documentação detalhada de todas as 30 tools, exemplos de uso e troubleshooting.
+
+---
+
+## 📜 Créditos
+
+Adaptado e unificado por **Flavio Takemoto**.
+
+Agradecimento especial a **Siddharth Ahuja** ([ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp)) pelo trabalho no addon.py — o plugin Blender que torna toda a comunicação possível — e a **Mezalla Studio** ([mezallastudio/antigravity-blender-mcp](https://github.com/mezallastudio/antigravity-blender-mcp)) pelas tools avançadas de modelagem.
+
+---
+
+## 📄 Licença
+
+[MIT](LICENSE) — Use, modifique e distribua livremente.
