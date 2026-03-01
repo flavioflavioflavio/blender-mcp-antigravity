@@ -201,12 +201,53 @@
       <section id="config-antigravity">
         <h2><span class="step-num">3</span> Configurar no Antigravity IDE</h2>
 
+        <!-- OPCAO A: FACIL -->
+        <div class="step-card" style="border-color: var(--success); border-width: 2px;">
+          <div class="step-label" style="color: var(--success);">Opcao A — Deixa o Antigravity Instalar (Mais Facil)</div>
+          <p>O proprio Antigravity pode configurar tudo pra voce. Basta abrir o chat e pedir:</p>
+
+          <div class="alert success">
+            <span class="alert-icon">OK</span>
+            <div class="alert-body">
+              <strong>Passo a passo automatico</strong>
+            </div>
+          </div>
+
+          <ol style="padding-left: 1.25rem; color: var(--text-secondary); line-height: 2;">
+            <li>Abra o <strong>Antigravity IDE</strong></li>
+            <li>No chat, envie a mensagem:<br>
+              <code style="display: inline-block; margin-top: 0.5rem; padding: 0.5rem 1rem; background: var(--bg-secondary); border-radius: 6px;">"Configure o MCP server blender-mcp apontando para a pasta [COLE O CAMINHO DA PASTA AQUI]"</code>
+            </li>
+            <li>O Antigravity vai automaticamente:
+              <ul style="margin-top: 0.5rem;">
+                <li>Localizar (ou criar) o arquivo <code>mcp_config.json</code></li>
+                <li>Adicionar a entrada <code>blender-mcp</code> com o caminho correto</li>
+                <li>Instalar as dependencias via <code>uv</code></li>
+              </ul>
+            </li>
+            <li>Reinicie o Antigravity para carregar o novo MCP server</li>
+            <li>Pronto! O Blender MCP ja aparece na lista de servers conectados</li>
+          </ol>
+
+          <div class="img-placeholder">
+            <img src="images/06_antigravity_connected.png" alt="Antigravity com blender-mcp" />
+          </div>
+        </div>
+
+        <!-- OPCAO B: MANUAL -->
         <div class="step-card">
-          <div class="step-label">Passo 3.1 — Editar mcp_config.json</div>
-          <p>
-            No seu <code>mcp_config.json</code> do Antigravity, adicione a
-            entrada <code>blender-mcp</code>:
-          </p>
+          <div class="step-label">Opcao B — Configuracao Manual (Avancado)</div>
+          <p>Se preferir configurar manualmente, edite o <code>mcp_config.json</code> do Antigravity:</p>
+
+          <ol style="padding-left: 1.25rem; color: var(--text-secondary); line-height: 2;">
+            <li>Localize o arquivo <code>mcp_config.json</code> do Antigravity
+              <ul style="margin-top: 0.25rem;">
+                <li>Geralmente fica em: <code>~/.gemini/antigravity/mcp_config.json</code></li>
+              </ul>
+            </li>
+            <li>Adicione a entrada <code>blender-mcp</code> dentro de <code>mcpServers</code>:</li>
+          </ol>
+
           <pre><code>{
   "mcpServers": {
     "blender-mcp": {
@@ -221,34 +262,23 @@
     }
   }
 }</code></pre>
+
           <div class="alert info">
             <span class="alert-icon">i</span>
             <div class="alert-body">
               <strong>Substitua o caminho</strong>
               <p>
                 Troque <code>&lt;CAMINHO_COMPLETO_DA_PASTA&gt;</code> pelo
-                caminho absoluto onde voce clonou/extraiu este repositorio.
-                Exemplo:
-                <code>C:\\MeusProjetos\\Blender MCP in Antigravity</code>
+                caminho absoluto onde voce extraiu este repositorio.
+                Exemplo: <code>C:\\MeusProjetos\\Blender MCP in Antigravity</code>
               </p>
             </div>
           </div>
-          <div class="img-placeholder">
-            <img src="images/05_mcp_config.svg" alt="mcp_config.json" />
-          </div>
-        </div>
 
-        <div class="step-card">
-          <div class="step-label">Passo 3.2 — Reiniciar o Antigravity</div>
-          <p>
-            Reinicie o Antigravity IDE para que ele carregue o novo MCP server.
-          </p>
-          <div class="img-placeholder">
-            <img
-              src="images/06_antigravity_connected.svg"
-              alt="Antigravity com blender-mcp"
-            />
-          </div>
+          <ol start="3" style="padding-left: 1.25rem; color: var(--text-secondary); line-height: 2;">
+            <li>Salve o arquivo</li>
+            <li>Reinicie o Antigravity IDE</li>
+          </ol>
         </div>
       </section>
 
@@ -272,7 +302,7 @@
             </div>
           </div>
           <div class="img-placeholder">
-            <img src="images/07_connected.svg" alt="Conexao ativa" />
+            <img src="images/07_connected.png" alt="Conexao ativa" />
           </div>
         </div>
       </section>
@@ -337,7 +367,7 @@
         </div>
 
         <div class="img-placeholder">
-          <img src="images/08_workflow_example.svg" alt="Exemplo de workflow" />
+          <img src="images/08_workflow_example.png" alt="Exemplo de workflow" />
         </div>
       </section>
 
